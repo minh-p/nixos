@@ -1,0 +1,24 @@
+environment.systemPackages = [
+  pkgs.foot
+  pkgs.brave
+  pkgs.sway
+  pkgs.swaylock
+  pkgs.wlsunset
+  pkgs.fcitx5
+  pkgs.xdg
+  pkgs.wofi
+  pkgs.imv
+  pkgs.mako
+  pkgs.wob
+  pkgs.sov
+  pkgs.polkit
+  pkgs.libsForQt5.polkit-kde-agent
+  pkgs.xdg-desktop-portal
+  pkgs.xdg-desktop-portal-wlr
+  pkgs.emacs
+  pkgs.emacsPackages.doom
+  pkgs.unzip
+  pkgs.virt-manager
+  pkgs.libsForQt5.dolphin
+  pkgs.neovim
+]
