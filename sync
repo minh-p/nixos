@@ -1,2 +1,2 @@
 #!/bin/sh
-rsync /etc/nixos/configuration.nix .
+rsync -r /etc/nixos/* .

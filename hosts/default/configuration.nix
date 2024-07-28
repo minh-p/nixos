@@ -2,12 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -46,9 +47,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -71,17 +69,25 @@
   nixpkgs.config.allowUnfree = true;
 
   # Allow experimental nix command
-  nix.settings.experimental-features = [ "nix-command" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hmp = {
     isNormalUser = true;
     home = "/home/hmp";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
       starship
       pstree
     ];
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "hmp" = import ./home.nix;
+    };
   };
 
   # List packages installed in system profile. To search, run:
@@ -89,10 +95,15 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
-    gnome.gnome-keyring
+    gnome-keyring
+    jetbrains-mono
+    home-manager
+    mpd
+    ncmpcpp
     wget
     sway
-    brave
+    htop
+    firefox
     vulkan-tools
     swaylock
     wlsunset
@@ -110,7 +121,7 @@
     emacsPackages.doom
     unzip
     virt-manager
-    dolphin
+    kdePackages.dolphin
     wl-clipboard
     git
     vesktop
@@ -118,11 +129,15 @@
     spotifywm
     keepassxc
     alacritty
+    wezterm
     foot
     emacs
     i3status
     fastfetch
     wlr-randr
+    xorg.xeyes
+    kdePackages.kalarm
+    kronometer
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -134,6 +149,12 @@
   # };
   
   services.gnome.gnome-keyring.enable = true;
+  services.emacs = {
+    enable = false;
+    install = true;
+  };
+
+  programs.zsh.enable = true;
 
   programs.sway = {
     enable = true;
@@ -156,7 +177,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
