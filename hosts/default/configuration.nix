@@ -128,7 +128,6 @@
     auto-cpufreq
     mpd
     wget
-    sway
     libgcc
     coreutils
     htop
@@ -182,6 +181,25 @@
   services.emacs = {
     enable = false;
     install = true;
+  };
+
+
+  services.displayManager.sessionPackages = [ pkgs.sway ];
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.sugarCandyNix = {
+    enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
+    settings = {
+      # Set your configuration options here.
+      # Here is a simple example:
+      Background = lib.cleanSource ../../shared/Images/Gate.jpg;
+      ScreenWidth = 1920;
+      ScreenHeight = 1080;
+      FormPosition = "left";
+      HaveFormBackground = true;
+      PartialBlur = true;
+    };
   };
 
   programs.zsh.enable = true;

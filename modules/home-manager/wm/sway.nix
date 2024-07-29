@@ -241,12 +241,12 @@ in {
 
 	output = {
 	  DP-3 = {
-	    bg = "/home/hmp/Pictures/Wallpapers/Gate.jpg fill";
+	    bg = "/etc/nixos/shared/Images/Gate.jpg fill";
 	    mode = "3440x1440@144Hz";
 	    position = "0,0";
 	  };
 	  HDMI-A-1 = {
-	    bg = "/home/hmp/Pictures/Wallpapers/Gate.jpg fill";
+	    bg = "/etc/nixos/shared/Images/Gate.jpg fill";
 	    mode = "1920x1200@75Hz";
 	    position = "3440,0";
 	    transform = "90";
