@@ -80,13 +80,24 @@
     packages = with pkgs; [
       starship
       pstree
+      spotify
+      spotifywm
+      vesktop
+      emacsPackages.doom
+      emacsPackages.vterm
+      ncmpcpp
+      ytfzf
+      ispell
+      sioyek
+      calibre
     ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "hm-backup";
     users = {
-      "hmp" = import ./home.nix;
+      "hmp" = import ./hmp-home.nix;
     };
   };
 
@@ -97,15 +108,17 @@
     zsh
     gnome-keyring
     jetbrains-mono
-    home-manager
+    cmake
+    gnumake
     mpd
-    ncmpcpp
     wget
     sway
+    libgcc
+    coreutils
     htop
     firefox
     vulkan-tools
-    swaylock
+    swaylock-effects
     wlsunset
     fcitx5
     xdg-utils
@@ -114,30 +127,31 @@
     mako
     wob
     sov
+    mpv
     polkit
     libsForQt5.polkit-kde-agent
     xdg-desktop-portal
     xdg-desktop-portal-wlr
-    emacsPackages.doom
     unzip
     virt-manager
     kdePackages.dolphin
     wl-clipboard
     git
-    vesktop
-    spotify
-    spotifywm
     keepassxc
     alacritty
     wezterm
     foot
     emacs
+    libvterm
     i3status
     fastfetch
     wlr-randr
     xorg.xeyes
     kdePackages.kalarm
     kronometer
+    grim
+    slurp
+    satty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
