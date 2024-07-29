@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home-manager/shell/zsh.nix
+    ../../modules/home-manager/wm/sway.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -73,16 +74,34 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    HISTFILE = "/home/hmp/.histfile";
+    HISTFILE = "${config.home.homeDirectory}/.histfile";
     HISTSIZE = 1000;
     MPD_HOST="localhost";
-    MOZ_ENABLE_WAYLAND = 1;
-    QT_QPA_PLATFORM = "wayland";
-    TERMINAL = "foot";
-    _JAVA_AWT_WM_NONREPARENTING = 1;
   };
 
+  systemd = {
+    user.services.polkit-kde-authentication-agent-1 = {
+      Unit = {
+        Description = "polkit-kde-authentication-agent-1";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+        Wants = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
+
   zsh.enable = true;
+  sway.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

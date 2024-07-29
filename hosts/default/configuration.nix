@@ -52,7 +52,17 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [
+      pkgs.brlaser
+    ];
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  }; 
 
   # Enable sound.
   # hardware.pulseaudio.enable = true;
@@ -107,10 +117,15 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
     tmux
+    pulseaudio
     gnome-keyring
     jetbrains-mono
+    dejavu_fonts
+    font-awesome_5
     cmake
+    playerctl
     gnumake
+    auto-cpufreq
     mpd
     wget
     sway
@@ -130,9 +145,7 @@
     sov
     mpv
     polkit
-    libsForQt5.polkit-kde-agent
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
+    kdePackages.polkit-kde-agent-1
     unzip
     virt-manager
     kdePackages.dolphin
@@ -163,6 +176,8 @@
   #   enableSSHSupport = true;
   # };
   
+  services.auto-cpufreq.enable = true;
+
   services.gnome.gnome-keyring.enable = true;
   services.emacs = {
     enable = false;
@@ -170,15 +185,11 @@
   };
 
   programs.zsh.enable = true;
+  programs.sway.enable = true;
 
-  programs.sway = {
+  xdg.portal = {
     enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
+    wlr.enable = true;
   };
 
   security.polkit.enable = true;
