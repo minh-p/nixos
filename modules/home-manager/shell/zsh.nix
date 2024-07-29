@@ -106,6 +106,7 @@
         config = "git --git-dir=$HOME/dotfiles/ --work-tree=$HOME";
         wifi = "nmtui";
         ls = "ls --color=auto";
+	tmux = "tmux -u";
       };
       initExtra = ''
         if [[ $TERM != "dumb" ]]; then

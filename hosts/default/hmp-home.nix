@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/shell/zsh.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -76,7 +76,6 @@
     HISTFILE = "/home/hmp/.histfile";
     HISTSIZE = 1000;
     MPD_HOST="localhost";
-    tmux = "tmux -u";
     MOZ_ENABLE_WAYLAND = 1;
     QT_QPA_PLATFORM = "wayland";
     TERMINAL = "foot";
