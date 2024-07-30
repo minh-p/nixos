@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo nixos-rebuild switch --flake ~/.config/nixos/#default
+sudo rsync -r ~/.config/nixos/* /etc/nixos

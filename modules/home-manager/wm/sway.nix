@@ -10,6 +10,7 @@ let
   upBind = "k";
   rightBind = "l";
   musicPlayer = "/etc/nixos/scripts/open_ncmpcpp_wezterm";
+  screenshot = "/etc/nixos/scripts/grim_satty_screenshot";
 in {
   options = {
     sway.enable = lib.mkEnableOption "enable sway module";
@@ -21,19 +22,20 @@ in {
       QT_QPA_PLATFORM = "wayland";
       TERMINAL = "foot";
       _JAVA_AWT_WM_NONREPARENTING = 1;
+      NIXOS_OZONE_WL = "1";
     };
     wayland.windowManager.sway = {
       checkConfig = false;
       enable = true;
       config = rec {
         modifier = modifierBind;
-	terminal = TERMINAL;
-	menu = menu1;
-	left = leftBind;
-	down = downBind;
-	up = upBind;
-	right = rightBind;
-	bars = [
+	      terminal = TERMINAL;
+	      menu = menu1;
+	      left = leftBind;
+	      down = downBind;
+	      up = upBind;
+	      right = rightBind;
+	      bars = [
 	  {
 	    fonts = {
 	      names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
@@ -194,6 +196,7 @@ in {
           XF86AudioPlay = "exec playerctl play-pause";
           XF86AudioNext = "exec playerctl next";
           XF86AudioPrev = "exec playerctl previous";
+          Print = "exec ${screenshot}";
 
           "${modifierBind}+1" = "workspace number 1; exec 'echo 1 > /tmp/sovpipe'";
           "${modifierBind}+2" = "workspace number 2; exec 'echo 1 > /tmp/sovpipe'";
