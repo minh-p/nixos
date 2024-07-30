@@ -4,6 +4,7 @@
   imports = [
     ../../modules/home-manager/shell/zsh.nix
     ../../modules/home-manager/wm/sway.nix
+    ../../modules/home-manager/music/spicetify.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -48,7 +49,6 @@
   
     starship
     pstree
-    spotifywm
     vesktop
     emacsPackages.doom
     emacsPackages.vterm
@@ -124,6 +124,7 @@
 
   zsh.enable = true;
   sway.enable = true;
+  spicetify.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
