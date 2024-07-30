@@ -132,6 +132,7 @@
     coreutils
     htop
     firefox
+    librewolf
     vulkan-tools
     swaylock-effects
     wlsunset
