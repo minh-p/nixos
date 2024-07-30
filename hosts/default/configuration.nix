@@ -162,7 +162,7 @@
     fastfetch
     wlr-randr
     xorg.xeyes
-    kdePackages.kalarm
+    libsForQt5.kalarm
     kronometer
     grim
     slurp
