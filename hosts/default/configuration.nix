@@ -118,7 +118,7 @@
     zsh
     tmux
     pulseaudio
-    gnome-keyring
+    gnome.gnome-keyring
     jetbrains-mono
     dejavu_fonts
     font-awesome_5
