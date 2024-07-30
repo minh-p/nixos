@@ -100,6 +100,7 @@
       ispell
       sioyek
       calibre
+      nixfmt-classic
     ];
   };
 
@@ -155,7 +156,7 @@
     alacritty
     wezterm
     foot
-    emacs
+    emacs29-pgtk
     libvterm
     i3status
     fastfetch
