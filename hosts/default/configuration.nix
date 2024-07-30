@@ -111,16 +111,13 @@
     dejavu_fonts
     font-awesome_5
     cmake
-    playerctl
     gnumake
     auto-cpufreq
-    mpd
     wget
     libgcc
     coreutils
     htop
     firefox
-    librewolf
     vulkan-tools
     swaylock-effects
     wlsunset
@@ -146,11 +143,8 @@
     emacs29-pgtk
     libvterm
     i3status
-    fastfetch
     wlr-randr
     xorg.xeyes
-    libsForQt5.kalarm
-    kronometer
     grim
     slurp
     satty

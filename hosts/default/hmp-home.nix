@@ -58,6 +58,12 @@
     sioyek
     calibre
     nixfmt-classic
+    playerctl
+    mpd
+    librewolf
+    fastfetch
+    libsForQt5.kalarm
+    kronometer
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
