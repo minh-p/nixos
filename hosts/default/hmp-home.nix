@@ -77,6 +77,8 @@
     HISTFILE = "${config.home.homeDirectory}/.histfile";
     HISTSIZE = 1000;
     MPD_HOST="localhost";
+    TERMINAL = "foot";
+    BROWSER = "librewolf";
   };
 
   systemd = {

@@ -1,15 +1,14 @@
 { lib, config, pkgs, ... }:
 
 let
+  inherit (config.home.sessionVariables) TERMINAL BROWSER;
   modifierBind = "Mod4";
-  terminalApp = "foot";
   menu1 = "wofi --show run";
   menu2 = "wofi --show drun";
   leftBind = "h";
   downBind = "j";
   upBind = "k";
   rightBind = "l";
-  browser = "firefox $1";
   musicPlayer = "/etc/nixos/scripts/open_ncmpcpp_wezterm";
 in {
   options = {
@@ -28,7 +27,7 @@ in {
       enable = true;
       config = rec {
         modifier = modifierBind;
-	terminal = terminalApp;
+	terminal = TERMINAL;
 	menu = menu1;
 	left = leftBind;
 	down = downBind;
@@ -183,7 +182,7 @@ in {
 	
 	keybindings = lib.mkOptionDefault {
 	  "${modifierBind}+Shift+d" = "exec ${menu2}";
-	  "${modifierBind}+Shift+b" = "exec ${browser}";
+	  "${modifierBind}+Shift+b" = "exec ${BROWSER}";
 	  "${modifierBind}+Shift+m" = "exec ${musicPlayer}";
 
           XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
@@ -218,7 +217,7 @@ in {
           "--release ${modifierBind}+9" = "exec 'echo 0 > /tmp/sovpipe'";
           "--release ${modifierBind}+0" = "exec 'echo 0 > /tmp/sovpipe'";
 	  "${modifierBind}+Return" = "echo";
-	  "${modifierBind}+Shift+Return" = "exec ${terminalApp}";
+	  "${modifierBind}+Shift+Return" = "exec ${TERMINAL}";
 	  "${modifierBind}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 	  "${modifierBind}+q" = "kill";
 	  "${modifierBind}+Shift+e" = "echo";
