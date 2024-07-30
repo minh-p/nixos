@@ -38,6 +38,13 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    (pkgs.texlive.combine {
+        inherit (pkgs.texlive) scheme-basic
+          dvisvgm dvipng # for preview and export as html
+          wrapfig amsmath ulem hyperref capt-of;
+          #(setq org-latex-compiler "lualatex")
+          #(setq org-preview-latex-default-process 'dvisvgm)
+    })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
