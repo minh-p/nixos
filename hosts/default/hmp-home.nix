@@ -21,7 +21,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -38,13 +38,26 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    (pkgs.texlive.combine {
-        inherit (pkgs.texlive) scheme-basic
-          dvisvgm dvipng # for preview and export as html
-          wrapfig amsmath ulem hyperref capt-of;
-          #(setq org-latex-compiler "lualatex")
-          #(setq org-preview-latex-default-process 'dvisvgm)
+    (texlive.combine {
+      inherit (texlive) scheme-basic
+        dvisvgm dvipng # for preview and export as html
+        wrapfig amsmath ulem hyperref capt-of;
+        #(setq org-latex-compiler "lualatex")
+        #(setq org-preview-latex-default-process 'dvisvgm)
     })
+  
+    starship
+    pstree
+    spotifywm
+    vesktop
+    emacsPackages.doom
+    emacsPackages.vterm
+    ncmpcpp
+    ytfzf
+    ispell
+    sioyek
+    calibre
+    nixfmt-classic
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

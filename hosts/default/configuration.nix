@@ -87,24 +87,10 @@
     home = "/home/hmp";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      starship
-      pstree
-      spotify
-      spotifywm
-      vesktop
-      emacsPackages.doom
-      emacsPackages.vterm
-      ncmpcpp
-      ytfzf
-      ispell
-      sioyek
-      calibre
-      nixfmt-classic
-    ];
   };
 
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "hm-backup";
     users = {
