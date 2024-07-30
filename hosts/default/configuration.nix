@@ -101,6 +101,8 @@
       sioyek
       calibre
       nixfmt-classic
+      texliveBasic
+      texlivePackages.dvipng
     ];
   };
 
