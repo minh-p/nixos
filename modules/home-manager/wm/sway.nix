@@ -12,6 +12,11 @@ let
   musicPlayer = "/etc/nixos/scripts/open_ncmpcpp_wezterm";
   screenshot = "/etc/nixos/scripts/grim_satty_screenshot";
 in {
+  imports = [
+    ./mako.nix
+    ../polkit/polkit-kde-authentication-agent.nix
+  ];
+
   options = {
     sway.enable = lib.mkEnableOption "enable sway module";
   };
@@ -24,6 +29,8 @@ in {
       _JAVA_AWT_WM_NONREPARENTING = 1;
       NIXOS_OZONE_WL = "1";
     };
+    mako.enable = true;
+    polkit-kde-authentication-agent.enable = true;
     wayland.windowManager.sway = {
       checkConfig = false;
       enable = true;
@@ -259,7 +266,6 @@ in {
 	  {command = "rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500";}
 	  {command = "wlsunset -T 8000 -g 0.8";}
 	  {command = "fcitx5";}
-	  {command = "mako";}
 	  {command = ''
 	    exec swayidle -w \
 	      timeout 1800 'swaylock -f' \

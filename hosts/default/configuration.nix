@@ -130,7 +130,6 @@
     sov
     mpv
     polkit
-    kdePackages.polkit-kde-agent-1
     unzip
     virt-manager
     kdePackages.dolphin
