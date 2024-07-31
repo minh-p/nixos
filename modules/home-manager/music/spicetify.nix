@@ -11,20 +11,23 @@ in
   };
 
   config = lib.mkIf config.spicetify.enable {
-    programs.spicetify =
-      {
-        enable = true;
-        theme = spicePkgs.themes.catppuccin;
-        colorScheme = "mocha";
-        windowManagerPatch = true;
+    programs.spicetify = {
+      enable = true;
+      theme = spicePkgs.themes.Onepunch;
+      colorScheme = "gruvbox";
+      windowManagerPatch = true;
 
-        enabledExtensions = with spicePkgs.extensions; [
-          fullAppDisplay
-          shuffle # shuffle+ (special characters are sanitized out of ext names)
-          hidePodcasts
-          adblock
-          keyboardShortcut
-        ];
-      };
+      enabledExtensions = with spicePkgs.extensions; [
+        fullAppDisplay
+        shuffle # shuffle+ (special characters are sanitized out of ext names)
+        hidePodcasts
+        adblock
+        keyboardShortcut
+      ];
+
+      enabledCustomApps = with spicePkgs.apps; [
+        marketplace
+      ];
+    };
   };
 }

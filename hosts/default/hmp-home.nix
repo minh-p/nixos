@@ -62,8 +62,10 @@
     mpd
     librewolf
     fastfetch
-    libsForQt5.kalarm
+    gnome.gnome-clocks
     kronometer
+    cava
+    wl-color-picker
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -110,6 +112,7 @@
   zsh.enable = true;
   sway.enable = true;
   spicetify.enable = true;
+  qt.style.name = "breeze";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

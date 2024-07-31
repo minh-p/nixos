@@ -139,6 +139,12 @@ in {
 	      window_role = "dialog";
 	    };
 	  }
+    {
+      command = "floating enable";
+      criteria = {
+        app_id = "org.gnome.clocks";
+      };
+    }
 	  {
 	    command = "floating enable";
 	    criteria = {
@@ -193,44 +199,46 @@ in {
 	  "${modifierBind}+Shift+d" = "exec ${menu2}";
 	  "${modifierBind}+Shift+b" = "exec ${BROWSER}";
 	  "${modifierBind}+Shift+m" = "exec ${musicPlayer}";
+	  "${modifierBind}+o" = "bar mode toggle";
 
-          XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
-	  XF86AudioLowerVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
-          XF86AudioMute = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          XF86AudioMicMute = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-          XF86MonBrightnessDown = "exec brightnessctl set 5%-";
-          XF86MonBrightnessUp = "exec brightnessctl set 5%+";
-          XF86AudioPlay = "exec playerctl play-pause";
-          XF86AudioNext = "exec playerctl next";
-          XF86AudioPrev = "exec playerctl previous";
-          Print = "exec ${screenshot}";
+    XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
+    XF86AudioLowerVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
+    XF86AudioMute = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+    XF86AudioMicMute = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+    XF86MonBrightnessDown = "exec brightnessctl set 5%-";
+    XF86MonBrightnessUp = "exec brightnessctl set 5%+";
+    XF86AudioPlay = "exec playerctl play-pause";
+    XF86AudioNext = "exec playerctl next";
+    XF86AudioPrev = "exec playerctl previous";
+    Print = "exec ${screenshot}";
 
-          "${modifierBind}+1" = "workspace number 1; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+2" = "workspace number 2; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+3" = "workspace number 3; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+4" = "workspace number 4; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+5" = "workspace number 5; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+6" = "workspace number 6; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+7" = "workspace number 7; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+8" = "workspace number 8; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+9" = "workspace number 9; exec 'echo 1 > /tmp/sovpipe'";
-          "${modifierBind}+0" = "workspace number 10; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+1" = "workspace number 1; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+2" = "workspace number 2; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+3" = "workspace number 3; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+4" = "workspace number 4; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+5" = "workspace number 5; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+6" = "workspace number 6; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+7" = "workspace number 7; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+8" = "workspace number 8; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+9" = "workspace number 9; exec 'echo 1 > /tmp/sovpipe'";
+    "${modifierBind}+0" = "workspace number 10; exec 'echo 1 > /tmp/sovpipe'";
 
-          "--release ${modifierBind}+1" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+2" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+3" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+4" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+5" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+6" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+7" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+8" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+9" = "exec 'echo 0 > /tmp/sovpipe'";
-          "--release ${modifierBind}+0" = "exec 'echo 0 > /tmp/sovpipe'";
-	  "${modifierBind}+Return" = "echo";
-	  "${modifierBind}+Shift+Return" = "exec ${TERMINAL}";
-	  "${modifierBind}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
-	  "${modifierBind}+q" = "kill";
-	  "${modifierBind}+Shift+e" = "echo";
+    "--release ${modifierBind}+1" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+2" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+3" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+4" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+5" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+6" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+7" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+8" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+9" = "exec 'echo 0 > /tmp/sovpipe'";
+    "--release ${modifierBind}+0" = "exec 'echo 0 > /tmp/sovpipe'";
+
+    "${modifierBind}+Return" = "echo";
+    "${modifierBind}+Shift+Return" = "exec ${TERMINAL}";
+    "${modifierBind}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+    "${modifierBind}+q" = "kill";
+    "${modifierBind}+Shift+e" = "echo";
 	};
 
 	modes = {
