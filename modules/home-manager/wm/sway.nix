@@ -50,7 +50,7 @@ in {
 	      size = 11.0;
 	    };
 	    statusCommand = "i3status";
-	    position = "bottom";
+	    position = "top";
 	    mode = "dock";
 	    hiddenState = "hide";
 	    workspaceButtons = true;
