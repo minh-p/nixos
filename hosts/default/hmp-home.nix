@@ -109,11 +109,15 @@
     BROWSER = "librewolf";
   };
 
+  programs.emacs.enable = true;
+  programs.emacs.package = pkgs.emacs29-pgtk;
+  services.emacs.enable = true;
+  services.emacs.package = pkgs.emacs29-pgtk;
+
   zsh.enable = true;
   sway.enable = true;
   spicetify.enable = true;
   qt.style.name = "breeze";
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

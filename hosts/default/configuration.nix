@@ -139,7 +139,6 @@
     alacritty
     wezterm
     foot
-    emacs29-pgtk
     libvterm
     i3status
     wlr-randr
@@ -160,12 +159,6 @@
   services.auto-cpufreq.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
-  services.emacs = {
-    enable = false;
-    install = true;
-  };
-
-
   services.displayManager.sessionPackages = [ pkgs.sway ];
 
   services.displayManager.sddm.enable = true;
