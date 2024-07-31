@@ -5,6 +5,7 @@ let
   modifierBind = "Mod4";
   menu1 = "wofi --show run";
   menu2 = "wofi --show drun";
+  editor = "emacsclient -nc";
   leftBind = "h";
   downBind = "j";
   upBind = "k";
@@ -238,7 +239,7 @@ in {
     "${modifierBind}+Shift+Return" = "exec ${TERMINAL}";
     "${modifierBind}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
     "${modifierBind}+q" = "kill";
-    "${modifierBind}+Shift+e" = "echo";
+    "${modifierBind}+Shift+e" = "exec ${editor}";
 	};
 
 	modes = {
