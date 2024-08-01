@@ -5,6 +5,7 @@
     ../../modules/home-manager/shell/zsh.nix
     ../../modules/home-manager/wm/sway.nix
     ../../modules/home-manager/music/spicetify.nix
+    ../../modules/home-manager/scripts
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -60,13 +61,16 @@
     nixfmt-classic
     playerctl
     mpd
+    mpc-cli
     librewolf
     fastfetch
     gnome.gnome-clocks
     kronometer
     cava
     wl-color-picker
-    xfce.thunar
+    swaybg
+    ripgrep
+    variety
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -108,6 +112,7 @@
     MPD_HOST="localhost";
     TERMINAL = "foot";
     BROWSER = "firefox";
+    WALLPAPERS_SRC = "${config.home.homeDirectory}/.config/variety/Favorites/.";
   };
 
   programs.emacs.enable = true;

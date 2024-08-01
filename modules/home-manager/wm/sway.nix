@@ -10,12 +10,13 @@ let
   downBind = "j";
   upBind = "k";
   rightBind = "l";
-  musicPlayer = "/etc/nixos/scripts/open_ncmpcpp_wezterm";
-  screenshot = "/etc/nixos/scripts/grim_satty_screenshot";
+  musicPlayer = "open_ncmpcpp_wezterm";
+  screenshot = "grim_satty_screenshot";
 in {
   imports = [
     ./mako.nix
     ../polkit/polkit-kde-authentication-agent.nix
+    ./sway-waybar.nix
   ];
 
   options = {
@@ -32,6 +33,7 @@ in {
     };
     mako.enable = true;
     polkit-kde-authentication-agent.enable = true;
+    waybar.enable = true;
     wayland.windowManager.sway = {
       checkConfig = false;
       enable = true;
@@ -43,54 +45,60 @@ in {
 	      down = downBind;
 	      up = upBind;
 	      right = rightBind;
-	      bars = [
-	  {
-	    fonts = {
-	      names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
-	      style = "Book";
-	      size = 11.0;
-	    };
-	    statusCommand = "i3status";
-	    position = "top";
-	    mode = "dock";
-	    hiddenState = "hide";
-	    workspaceButtons = true;
-	    # trayOutput = "primary";
-	    extraConfig = ''
-	      separator_symbol " • "
-	    '';
-	    colors = {
-              background = "#000000";
-              statusline = "#ffffff";
-              separator = "#666666";
-	      focusedWorkspace = {
-	        background = "#4c7899";
-		border = "#285577";
-		text = "#ffffff";
-	      };
-	      activeWorkspace = {
-	        background = "#333333";
-		border = "#5f676a";
-		text = "#ffffff";
-	      };
-	      inactiveWorkspace = {
-	        background = "#333333";
-		border = "#222222";
-		text = "#888888";
-	      };
-	      urgentWorkspace = {
-	        background = "#2f343a";
-		border = "#900000";
-		text = "#ffffff";
-	      };
-	      bindingMode = {
-	        background = "#2f343a";
-		border = "#900000";
-		text = "#ffffff";
-	      };
-            };
-	  }
-	];
+        gaps = {
+          inner = 5;
+        };
+        bars = [
+          {command = "launch_waybar";}
+        ];
+# 	      bars = [
+# 	  {
+# 	    fonts = {
+# 	      names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+# 	      style = "Book";
+# 	      size = 11.0;
+# 	    };
+# 	    statusCommand = "i3status";
+# 	    position = "top";
+# 	    mode = "dock";
+# 	    hiddenState = "hide";
+# 	    workspaceButtons = true;
+# 	    # trayOutput = "primary";
+# 	    extraConfig = ''
+# 	      separator_symbol " • "
+# 	    '';
+# 	    colors = {
+#               background = "#000000";
+#               statusline = "#ffffff";
+#               separator = "#666666";
+# 	      focusedWorkspace = {
+# 	        background = "#4c7899";
+# 		border = "#285577";
+# 		text = "#ffffff";
+# 	      };
+# 	      activeWorkspace = {
+# 	        background = "#333333";
+# 		border = "#5f676a";
+# 		text = "#ffffff";
+# 	      };
+# 	      inactiveWorkspace = {
+# 	        background = "#333333";
+# 		border = "#222222";
+# 		text = "#888888";
+# 	      };
+# 	      urgentWorkspace = {
+# 	        background = "#2f343a";
+# 		border = "#900000";
+# 		text = "#ffffff";
+# 	      };
+# 	      bindingMode = {
+# 	        background = "#2f343a";
+# 		border = "#900000";
+# 		text = "#ffffff";
+# 	      };
+#             };
+# 	  }
+# 	];
 	workspaceOutputAssign = [
 	  {
 	    workspace = "1";
@@ -200,7 +208,7 @@ in {
 	  "${modifierBind}+Shift+d" = "exec ${menu2}";
 	  "${modifierBind}+Shift+b" = "exec ${BROWSER}";
 	  "${modifierBind}+Shift+m" = "exec ${musicPlayer}";
-	  "${modifierBind}+o" = "bar mode toggle";
+	  "${modifierBind}+o" = "exec waybar_toggle";
 
     XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
     XF86AudioLowerVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
@@ -259,12 +267,12 @@ in {
 
 	output = {
 	  DP-3 = {
-	    bg = "/etc/nixos/shared/Images/Gate.jpg fill";
+	    bg = "/etc/nixos/shared/Images/default.jpg fill";
 	    mode = "3440x1440@144Hz";
 	    position = "0,0";
 	  };
 	  HDMI-A-1 = {
-	    bg = "/etc/nixos/shared/Images/Gate.jpg fill";
+	    bg = "/etc/nixos/shared/Images/default.jpg fill";
 	    mode = "1920x1200@75Hz";
 	    position = "3440,0";
 	    transform = "90";

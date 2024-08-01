@@ -73,7 +73,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
@@ -145,6 +145,9 @@
     grim
     slurp
     satty
+    nerdfonts
+    xfce.thunar
+    killall
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -154,7 +157,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  
+
   services.auto-cpufreq.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
@@ -178,6 +181,7 @@
 
   programs.zsh.enable = true;
   programs.sway.enable = true;
+  programs.sway.wrapperFeatures.gtk = true;
 
   xdg.portal = {
     enable = true;

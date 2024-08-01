@@ -1,7 +1,0 @@
-#!/bin/sh
-if pgrep -x "ncmpcpp" > /dev/null
-then
-  pkill -9 ncmpcpp
-else
-  wezterm-gui -e ncmpcpp
-fi
