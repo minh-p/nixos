@@ -35,6 +35,7 @@ in {
     polkit-kde-authentication-agent.enable = true;
     waybar.enable = true;
     wayland.windowManager.sway = {
+      wrapperFeatures.gtk = true;
       checkConfig = false;
       enable = true;
       config = rec {
@@ -291,6 +292,7 @@ in {
               before-sleep 'playerctl pause' \
               before-sleep 'swaylock'
 	  '';}
+	  {command = "wallpaper_random";}
 	];
       };
       extraConfig = ''
