@@ -181,7 +181,7 @@ in {
         };
         "custom/wall" = {
           "on-click" = "wallpaper_random";
-          "on-click-middle" = "default_wall";
+          "on-click-middle" = "default_wallpaper";
           "on-click-right" = "killall dynamic_wallpaper || dynamic_wallpaper &";
           "format" = " 󰠖 ";
           "tooltip" = false;
@@ -265,6 +265,7 @@ in {
         "network" = {
           "interval" = 1;
           "format-wifi" = "󰖩 {essid}";
+          "on-click" = "open_nmtui_wezterm";
           "format-ethernet" = "󰀂 {ifname} ({ipaddr})";
           "format-linked" = "󰖪 {essid} (No IP)";
           "format-disconnected" = "󰯡 Disconnected";

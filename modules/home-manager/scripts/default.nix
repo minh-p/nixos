@@ -1,6 +1,11 @@
 { config, lib, pkgs, ... }:
 let
   inherit (config.home.sessionVariables) WALLPAPERS_SRC;
+
+  open_nmtui_wezterm = pkgs.writeShellScriptBin "open_nmtui_wezterm" ''
+    wezterm-gui -e nmtui &
+  '';
+
   grim_satty_screenshot = pkgs.writeShellScriptBin "grim_satty_screenshot" ''
     grim -g "$(slurp -c '#ff0000ff')" - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
   '';
@@ -38,7 +43,7 @@ let
     if command -v swaybg >/dev/null 2>&1; then
        killall swaybg
        killall dynamic_wallpaper
-       swaybg -i $(find /etc/nixos/shared/Images/. -name "default.jpg | shuf -n1") -m fill &
+       swaybg -i $(find /etc/nixos/shared/Images/. -name "default.jpg" | shuf -n1) -m fill &
     fi
   '';
   wallpaper_random = pkgs.writeShellScriptBin "wallpaper_random" ''
@@ -97,5 +102,6 @@ in {
     wofi_powermenu
     grim_satty_screenshot
     open_ncmpcpp_wezterm
+    open_nmtui_wezterm
   ];
 }
