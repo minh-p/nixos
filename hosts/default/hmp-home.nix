@@ -40,7 +40,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     (texlive.combine {
-      inherit (texlive) scheme-basic
+      inherit (texlive) scheme-medium
         dvisvgm dvipng # for preview and export as html
         wrapfig amsmath ulem hyperref capt-of;
         #(setq org-latex-compiler "lualatex")
@@ -66,6 +66,7 @@
     kronometer
     cava
     wl-color-picker
+    xfce.thunar
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

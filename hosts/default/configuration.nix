@@ -132,7 +132,6 @@
     polkit
     unzip
     virt-manager
-    kdePackages.dolphin
     wl-clipboard
     git
     keepassxc
