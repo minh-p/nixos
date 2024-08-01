@@ -107,7 +107,7 @@
     HISTSIZE = 1000;
     MPD_HOST="localhost";
     TERMINAL = "foot";
-    BROWSER = "librewolf";
+    BROWSER = "firefox";
   };
 
   programs.emacs.enable = true;
