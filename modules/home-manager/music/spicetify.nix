@@ -13,8 +13,8 @@ in
   config = lib.mkIf config.spicetify.enable {
     programs.spicetify = {
       enable = true;
-      theme = spicePkgs.themes.Onepunch;
-      colorScheme = "gruvbox";
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "macchiato";
       windowManagerPatch = true;
 
       enabledExtensions = with spicePkgs.extensions; [
