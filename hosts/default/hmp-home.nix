@@ -71,6 +71,7 @@
     swaybg
     ripgrep
     variety
+    pamixer
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

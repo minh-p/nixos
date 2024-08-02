@@ -52,6 +52,20 @@ in {
         bars = [
           {command = "launch_waybar";}
         ];
+        colors.focused = {
+          background = "#285577";
+          border = "#b5e8e0";
+          childBorder = "#285577";
+          indicator = "#2e9ef4";
+          text = "#ffffff";
+        };
+        colors.unfocused = {
+          background = "#1E1E2E";
+          border = "#333333";
+          childBorder = "#1E1E2E";
+          indicator = "#292d2e";
+          text = "#888888";
+        };
 # 	      bars = [
 # 	  {
 # 	    fonts = {
