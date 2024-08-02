@@ -8,7 +8,6 @@ let
     waybar &
   '';
   waybar_spotify = pkgs.writeShellScriptBin "waybar_spotify" ''
-    playerctl -p spotify pause
     while true; do
       player_status=$(playerctl -p spotify status 2>/dev/null)
 
