@@ -7,12 +7,30 @@ let
   launch_waybar = pkgs.writeShellScriptBin "launch_waybar" ''
     waybar &
   '';
+  waybar_spotify = pkgs.writeShellScriptBin "waybar_spotify" ''
+    while true; do
+      player_status=$(playerctl -p spotify status 2>/dev/null)
+
+      if [ "$player_status" = "Playing" ]; then
+        artist=$(playerctl -p spotify metadata artist)
+        title=$(playerctl -p spotify metadata title)
+        # Escape special characters for JSON
+        artist=$(echo "$artist" | sed 's/&/&amp;/g')
+        title=$(echo "$title" | sed 's/&/&amp;/g')
+        echo '{"text": "'"$artist - $title"'", "class": "custom-spotify", "alt": "Spotify"}'
+      elif [ "$player_status" = "Paused" ]; then
+        echo '{"text": "'"$artist - $title"' (Paused)", "class": "custom-spotify-paused", "alt": "Spotify (Paused)"}'
+      fi
+      sleep 3
+    done
+  '';
 in {
   options.waybar.enable = lib.mkEnableOption "enable waybar module";
   config = lib.mkIf config.waybar.enable {
     home.packages = with pkgs; [
       launch_waybar
       waybar_toggle
+      waybar_spotify
     ];
     programs.waybar = {
       enable = true;
@@ -147,6 +165,13 @@ in {
         #mpd {
                 color: #c0caf5;
               }
+        .custom-spotify {
+                color: #c0caf5;
+        }
+        .custom-spotify-paused {
+                color: #414868;
+                font-style: italic;
+        }
         #custom-cava-internal{
                 font-family: "Hack Nerd Font" ;
               }
@@ -159,6 +184,7 @@ in {
           #"idle_inhibitor"
           "custom/wall"
           "mpd"
+          "custom/spotify"
           "custom/cava-internal"
         ];
         modules-center = [
@@ -250,9 +276,9 @@ in {
         };
         "mpd" = {
           "max-length" = 25;
-          "format" = "<span foreground='#bb9af7'></span> {title}";
-          "format-paused" = " {title}";
-          "format-stopped" = "<span foreground='#bb9af7'></span>";
+          "format" = "<span foreground='#bb9af7'>󰝚</span> {title}";
+          "format-paused" = "󰝚 {title}";
+          "format-stopped" = "<span foreground='#bb9af7'>󰝚</span>";
           "format-disconnected" = "";
           "on-click" = "mpc --quiet toggle";
           "on-click-right" = "mpc update; mpc ls | mpc add";
@@ -261,6 +287,15 @@ in {
           "on-scroll-down" = "mpc --quiet next";
           "smooth-scrolling-threshold" = 5;
           "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+        };
+        "custom/spotify" = {
+          "format" = "󰓇 {}";
+          "format-disconnected" = "";
+          "exec" = "waybar_spotify";
+          "return-type" = "json";
+          "on-click" = "playerctl -p spotify play-pause";
+          "on-scroll-up" = "playerctl -p spotify previous";
+          "on-scroll-down" = "playerctl -p spotify next";
         };
         "network" = {
           "interval" = 1;
