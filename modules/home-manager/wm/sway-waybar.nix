@@ -8,6 +8,7 @@ let
     waybar &
   '';
   waybar_spotify = pkgs.writeShellScriptBin "waybar_spotify" ''
+    playerctl -p spotify pause
     while true; do
       player_status=$(playerctl -p spotify status 2>/dev/null)
 
@@ -17,9 +18,10 @@ let
         # Escape special characters for JSON
         artist=$(echo "$artist" | sed 's/&/&amp;/g')
         title=$(echo "$title" | sed 's/&/&amp;/g')
-        echo '{"text": "'"$artist - $title"'", "class": "custom-spotify", "alt": "Spotify"}'
+        tooltip="$artist - $title"
+        echo '{"text": "'"$title"'", "tooltip": "'"$tooltip"'", "class": "custom-spotify", "alt": "Spotify"}'
       elif [ "$player_status" = "Paused" ]; then
-        echo '{"text": "'"$artist - $title"' (Paused)", "class": "custom-spotify-paused", "alt": "Spotify (Paused)"}'
+        echo '{"text": "'"$title"' (Paused)", "tooltip": "'"$tooltip"'", "class": "custom-spotify-paused", "alt": "Spotify (Paused)"}'
       fi
       sleep 3
     done
@@ -277,7 +279,7 @@ in {
         "mpd" = {
           "max-length" = 25;
           "format" = "<span foreground='#bb9af7'>󰝚</span> {title}";
-          "format-paused" = "󰝚 {title}";
+          "format-paused" = "<span foreground='#bb9af7'>󰝚</span> {title}";
           "format-stopped" = "<span foreground='#bb9af7'>󰝚</span>";
           "format-disconnected" = "";
           "on-click" = "mpc --quiet toggle";
@@ -289,8 +291,7 @@ in {
           "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
         };
         "custom/spotify" = {
-          "format" = "󰓇 {}";
-          "format-disconnected" = "";
+          "format" = "<span foreground='#1DB954'>󰓇</span> {}";
           "exec" = "waybar_spotify";
           "return-type" = "json";
           "on-click" = "playerctl -p spotify play-pause";
