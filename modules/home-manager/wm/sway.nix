@@ -46,6 +46,8 @@ in {
 	      down = downBind;
 	      up = upBind;
 	      right = rightBind;
+        window.border = 2;
+        window.titlebar = false;
         gaps = {
           inner = 5;
         };
@@ -316,6 +318,12 @@ in {
           repeat_rate 60
           repeat_delay 500
         }
+        # No titlebar
+        default_border none
+        default_floating_border none
+        font monospace 0.001
+        titlebar_padding 1
+        titlebar_border_thickness 0
       '';
     };
   };
