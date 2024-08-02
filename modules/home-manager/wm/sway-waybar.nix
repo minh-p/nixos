@@ -8,22 +8,19 @@ let
     waybar &
   '';
   waybar_spotify = pkgs.writeShellScriptBin "waybar_spotify" ''
-    while true; do
-      player_status=$(playerctl -p spotify status 2>/dev/null)
+    player_status=$(playerctl -p spotify status 2>/dev/null)
 
-      if [ "$player_status" = "Playing" ]; then
-        artist=$(playerctl -p spotify metadata artist)
-        title=$(playerctl -p spotify metadata title)
-        # Escape special characters for JSON
-        artist=$(echo "$artist" | sed 's/&/&amp;/g')
-        title=$(echo "$title" | sed 's/&/&amp;/g')
-        tooltip="$artist - $title"
-        echo '{"text": "'"$title"'", "tooltip": "'"$tooltip"'", "class": "custom-spotify", "alt": "Spotify"}'
-      elif [ "$player_status" = "Paused" ]; then
-        echo '{"text": "'"$title"' (Paused)", "tooltip": "'"$tooltip"'", "class": "custom-spotify-paused", "alt": "Spotify (Paused)"}'
-      fi
-      sleep 3
-    done
+    if [ "$player_status" = "Playing" ]; then
+      artist=$(playerctl -p spotify metadata artist)
+      title=$(playerctl -p spotify metadata title)
+      # Escape special characters for JSON
+      artist=$(echo "$artist" | sed 's/&/&amp;/g')
+      title=$(echo "$title" | sed 's/&/&amp;/g')
+      tooltip="$artist - $title"
+      echo '{"text": "'"$title"'", "tooltip": "'"$tooltip"'", "class": "custom-spotify", "alt": "Spotify"}'
+    elif [ "$player_status" = "Paused" ]; then
+      echo '{"text": "Paused", "class": "custom-spotify-paused", "alt": "Spotify Paused"}'
+    fi
   '';
 in {
   options.waybar.enable = lib.mkEnableOption "enable waybar module";
@@ -292,6 +289,7 @@ in {
         "custom/spotify" = {
           "format" = "<span foreground='#1DB954'>󰓇</span> {}";
           "exec" = "waybar_spotify";
+          "interval" = 1;
           "return-type" = "json";
           "on-click" = "playerctl -p spotify play-pause";
           "on-scroll-up" = "playerctl -p spotify previous";
