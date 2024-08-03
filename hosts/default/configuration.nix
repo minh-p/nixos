@@ -112,6 +112,8 @@
     font-awesome_5
     cmake
     gnumake
+    clang
+    fd
     auto-cpufreq
     wget
     libgcc
