@@ -298,7 +298,7 @@ in {
         "network" = {
           "interval" = 1;
           "format-wifi" = "󰖩 {essid}";
-          "on-click" = "open_nmtui_wezterm";
+          "on-click" = "killall nmtui || open_nmtui_wezterm";
           "format-ethernet" = "󰀂 {ifname} ({ipaddr})";
           "format-linked" = "󰖪 {essid} (No IP)";
           "format-disconnected" = "󰯡 Disconnected";
@@ -312,7 +312,7 @@ in {
         };
         "custom/powermenu" = {
           "format" = "";
-          "on-click" = "killall wofi || wofi_powermenu";
+          "on-click" = "pkill wofi || wofi_powermenu";
           "tooltip" = false;
         };
         "tray" = {
