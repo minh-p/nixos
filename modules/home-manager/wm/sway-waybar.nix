@@ -179,7 +179,6 @@ in {
           "custom/launcher"
           "sway/workspaces"
           "temperature"
-          #"idle_inhibitor"
           "custom/wall"
           "mpd"
           "custom/spotify"
@@ -189,6 +188,7 @@ in {
           "clock"
         ];
         modules-right = [
+          "idle_inhibitor"
           "pulseaudio"
           "backlight"
           "memory"
@@ -220,10 +220,10 @@ in {
         "idle_inhibitor" = {
           "format" = "{icon}";
           "format-icons" = {
-            "activated" = "";
-            "deactivated" = "";
+            "activated" = "󰛐";
+            "deactivated" = "";
           };
-          "tooltip" = false;
+          "tooltip" = true;
         };
         "backlight" = {
           "device" = "intel_backlight";

@@ -6,6 +6,7 @@
     ../../modules/home-manager/wm/sway.nix
     ../../modules/home-manager/music/spicetify.nix
     ../../modules/home-manager/scripts
+    ../../modules/home-manager/editors/emacs
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -51,7 +52,6 @@
     starship
     pstree
     vesktop
-    emacsPackages.doom
     emacsPackages.vterm
     ncmpcpp
     ytfzf
@@ -116,13 +116,9 @@
     WALLPAPERS_SRC = "${config.home.homeDirectory}/.config/variety/Favorites/.";
   };
 
-  programs.emacs.enable = true;
-  programs.emacs.package = pkgs.emacs29-pgtk;
-  services.emacs.enable = true;
-  services.emacs.package = pkgs.emacs29-pgtk;
-
   zsh.enable = true;
   sway.enable = true;
+  emacs.enable = true;
   spicetify.enable = true;
   qt.style.name = "breeze";
   # Let Home Manager install and manage itself.
