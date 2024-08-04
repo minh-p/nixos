@@ -7,6 +7,7 @@
     ../../modules/home-manager/music/spicetify.nix
     ../../modules/home-manager/scripts
     ../../modules/home-manager/editors/emacs
+    ../../modules/home-manager/theming/gtk
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -72,6 +73,8 @@
     ripgrep
     variety
     pamixer
+    komikku
+    cliphist
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -119,6 +122,7 @@
   zsh.enable = true;
   sway.enable = true;
   emacs.enable = true;
+  gtkConfig.enable = true;
   spicetify.enable = true;
   qt.style.name = "breeze";
   # Let Home Manager install and manage itself.

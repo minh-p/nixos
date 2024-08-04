@@ -17,6 +17,7 @@ in {
     ./mako.nix
     ../polkit/polkit-kde-authentication-agent.nix
     ./sway-waybar.nix
+    ./clipboard.nix
   ];
 
   options = {
@@ -309,6 +310,7 @@ in {
               before-sleep 'swaylock'
 	  '';}
 	  {command = "wallpaper_random";}
+	  {command = "start-cliphist";}
 	];
       };
       extraConfig = ''
