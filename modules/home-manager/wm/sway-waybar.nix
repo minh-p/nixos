@@ -199,7 +199,7 @@ in {
           "tray"
         ];
         "custom/launcher" = {
-          "format" = " ";
+          "format" = "󱄅 ";
           "on-click" = "pkill wofi || wofi --show drun";
           "tooltip" = false;
         };

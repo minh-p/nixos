@@ -9,11 +9,32 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      inputs.stylix.nixosModules.stylix
+      ../../modules/nixos/stylix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      enable = true;
+      useOSProber = true;
+      copyKernels = true;
+      efiSupport = true;
+      fsIdentifier = "label";
+      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      device = "nodev";
+      extraEntries = ''
+          menuentry "Reboot" {
+              reboot
+          }
+          menuentry "Poweroff" {
+              halt
+          }
+      '';
+    };
+  };
 
   networking.hostName = "Aurelius"; # Define your hostname.
   # Pick only one of the below networking options.

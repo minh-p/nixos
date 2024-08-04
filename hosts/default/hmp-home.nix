@@ -7,8 +7,7 @@
     ../../modules/home-manager/music/spicetify.nix
     ../../modules/home-manager/scripts
     ../../modules/home-manager/editors/emacs
-    ../../modules/home-manager/theming/gtk
-    ../../modules/home-manager/theming/qt
+    ../../modules/home-manager/theming/stylix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -67,7 +66,6 @@
     librewolf
     fastfetch
     gnome.gnome-clocks
-    kronometer
     cava
     wl-color-picker
     swaybg
@@ -123,8 +121,7 @@
   zsh.enable = true;
   sway.enable = true;
   emacs.enable = true;
-  gtkConfig.enable = true;
-  qtConfig.enable = true;
+  stylix.enable = true;
   spicetify.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

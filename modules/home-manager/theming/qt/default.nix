@@ -5,8 +5,8 @@
   config = lib.mkIf config.qtConfig.enable {
     qt = {
       enable = true;
-      platformTheme.name = "adwaita";
-      style.name = "adwaita-dark";
+      platformTheme.name = "kde";
+      style.package = pkgs.materia-kde-theme;
     };
   };
 }
