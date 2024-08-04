@@ -1,4 +1,0 @@
-#!/bin/sh
-
-nix build \
-    .#nixosConfigurations.iso-x86_64.config.system.build.isoImage
