@@ -72,6 +72,9 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
@@ -125,6 +128,7 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
+    ventoy
     tmux
     pulseaudio
     gnome.gnome-keyring
