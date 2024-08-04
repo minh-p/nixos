@@ -42,7 +42,7 @@ in {
       config = rec {
         modifier = modifierBind;
 	      terminal = TERMINAL;
-	      menu = menu1;
+	      menu = menu2;
 	      left = leftBind;
 	      down = downBind;
 	      up = upBind;
@@ -223,7 +223,7 @@ in {
 	];
 	
 	keybindings = lib.mkOptionDefault {
-	  "${modifierBind}+Shift+d" = "exec ${menu2}";
+	  "${modifierBind}+Shift+d" = "exec ${menu1}";
 	  "${modifierBind}+Shift+b" = "exec ${BROWSER}";
 	  "${modifierBind}+Shift+m" = "exec ${musicPlayer}";
 	  "${modifierBind}+o" = "exec waybar_toggle";
