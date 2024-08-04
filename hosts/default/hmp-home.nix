@@ -8,6 +8,7 @@
     ../../modules/home-manager/scripts
     ../../modules/home-manager/editors/emacs
     ../../modules/home-manager/theming/gtk
+    ../../modules/home-manager/theming/qt
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -123,8 +124,8 @@
   sway.enable = true;
   emacs.enable = true;
   gtkConfig.enable = true;
+  qtConfig.enable = true;
   spicetify.enable = true;
-  qt.style.name = "breeze";
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
