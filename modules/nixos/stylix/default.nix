@@ -2,6 +2,7 @@
 
 {
   stylix.enable = true;
+  stylix.autoEnable = false;
   stylix.image = /etc/nixos/shared/Images/Gate.jpg;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
   stylix.cursor.package = pkgs.bibata-cursors;
@@ -14,4 +15,5 @@
     popups = 1.0;
   };
   stylix.polarity = "dark";
+  stylix.targets.grub.enable = true;
 }
