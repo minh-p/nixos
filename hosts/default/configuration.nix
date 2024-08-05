@@ -107,7 +107,16 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
-  }; 
+  };
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings = {
+    data-root = "/home/hmp/.local/share/docker-root";
+  };
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Enable sound.
   # hardware.pulseaudio.enable = true;

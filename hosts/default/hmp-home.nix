@@ -74,6 +74,9 @@
     pamixer
     komikku
     cliphist
+    distrobox
+    telegram-desktop
+    signal-desktop
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
