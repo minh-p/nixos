@@ -21,7 +21,7 @@ let
   '';
 
   wofi_powermenu = pkgs.writeShellScriptBin "wofi_powermenu" ''
-    op=$( echo -e " Poweroff\n Reboot\n Suspend\n Lock\n Logout" | wofi -i --dmenu | awk '{print tolower($2)}' )
+    op=$( echo -e " Poweroff\n Reboot\n Suspend\n Lock\n Logout\n Hibernate" | wofi -i --dmenu | awk '{print tolower($2)}' )
 
     case $op in
         poweroff)
@@ -29,6 +29,8 @@ let
         reboot)
           ;&
         suspend)
+          ;&
+        hibernate)
           systemctl $op
           ;;
         lock)
