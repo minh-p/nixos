@@ -175,6 +175,7 @@
     coreutils
     htop
     firefox
+    ffmpeg-full
     vulkan-tools
     swaylock-effects
     wlsunset

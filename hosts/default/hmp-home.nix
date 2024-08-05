@@ -8,6 +8,7 @@
     ../../modules/home-manager/scripts
     ../../modules/home-manager/editors/emacs
     ../../modules/home-manager/theming/stylix
+    ../../modules/home-manager/screenrecord/obs
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -77,6 +78,9 @@
     distrobox
     telegram-desktop
     signal-desktop
+    drm_info
+    jq
+    audacity
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -126,6 +130,7 @@
   emacs.enable = true;
   stylix.enable = true;
   spicetify.enable = true;
+  obs.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
