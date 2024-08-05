@@ -69,164 +69,165 @@ in {
           indicator = "#292d2e";
           text = "#888888";
         };
-# 	      bars = [
-# 	  {
-# 	    fonts = {
-# 	      names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
-# 	      style = "Book";
-# 	      size = 11.0;
-# 	    };
-# 	    statusCommand = "i3status";
-# 	    position = "top";
-# 	    mode = "dock";
-# 	    hiddenState = "hide";
-# 	    workspaceButtons = true;
-# 	    # trayOutput = "primary";
-# 	    extraConfig = ''
-# 	      separator_symbol " • "
-# 	    '';
-# 	    colors = {
-#               background = "#000000";
-#               statusline = "#ffffff";
-#               separator = "#666666";
-# 	      focusedWorkspace = {
-# 	        background = "#4c7899";
-# 		border = "#285577";
-# 		text = "#ffffff";
-# 	      };
-# 	      activeWorkspace = {
-# 	        background = "#333333";
-# 		border = "#5f676a";
-# 		text = "#ffffff";
-# 	      };
-# 	      inactiveWorkspace = {
-# 	        background = "#333333";
-# 		border = "#222222";
-# 		text = "#888888";
-# 	      };
-# 	      urgentWorkspace = {
-# 	        background = "#2f343a";
-# 		border = "#900000";
-# 		text = "#ffffff";
-# 	      };
-# 	      bindingMode = {
-# 	        background = "#2f343a";
-# 		border = "#900000";
-# 		text = "#ffffff";
-# 	      };
-#             };
-# 	  }
-# 	];
-	workspaceOutputAssign = [
-	  {
-	    workspace = "1";
-	    output = "DP-3";
-	  }
-	  {
-	    workspace = "2";
-	    output = "DP-3";
-	  }
-	  {
-	    workspace = "3";
-	    output = "DP-3";
-	  }
-	  {
-	    workspace = "4";
-	    output = "HDMI-A-1";
-	  }
-	  {
-	    workspace = "4";
-	    output = "HDMI-A-1";
-	  }
-	  {
-	    workspace = "6";
-	    output = "HDMI-A-1";
-	  }
-	  {
-	    workspace = "7";
-	    output = "DP-3";
-	  }
-	  {
-	    workspace = "8";
-	    output = "DP-3";
-	  }
-	  {
-	    workspace = "9";
-	    output = "DP-3";
-	  }
-	  {
-	    workspace = "10";
-	    output = "DP-3";
-	  }
-	];
-	window.commands = [
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      window_role = "dialog";
-	    };
-	  }
+#       bars = [
+#   {
+#     fonts = {
+#       names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+#       style = "Book";
+#       size = 11.0;
+#     };
+#     statusCommand = "i3status";
+#     position = "top";
+#     mode = "dock";
+#     hiddenState = "hide";
+#     workspaceButtons = true;
+#     # trayOutput = "primary";
+#     extraConfig = ''
+#       separator_symbol " • "
+#     '';
+#     colors = {
+#             background = "#000000";
+#             statusline = "#ffffff";
+#             separator = "#666666";
+#       focusedWorkspace = {
+#         background = "#4c7899";
+# border = "#285577";
+# text = "#ffffff";
+#      };
+#      activeWorkspace = {
+#        background = "#333333";
+# border = "#5f676a";
+# text = "#ffffff";
+#      };
+#      inactiveWorkspace = {
+#        background = "#333333";
+# border = "#222222";
+# text = "#888888";
+#      };
+#      urgentWorkspace = {
+#        background = "#2f343a";
+# border = "#900000";
+# text = "#ffffff";
+#      };
+#      bindingMode = {
+#        background = "#2f343a";
+# border = "#900000";
+# text = "#ffffff";
+#      };
+#          };
+#  }
+# ];
+  workspaceOutputAssign = [
+    {
+      workspace = "1";
+      output = "DP-3";
+    }
+    {
+      workspace = "2";
+      output = "DP-3";
+    }
+    {
+      workspace = "3";
+      output = "DP-3";
+    }
+    {
+      workspace = "4";
+      output = "HDMI-A-1";
+    }
+    {
+      workspace = "4";
+      output = "HDMI-A-1";
+    }
+    {
+      workspace = "6";
+      output = "HDMI-A-1";
+    }
+    {
+      workspace = "7";
+      output = "DP-3";
+    }
+    {
+      workspace = "8";
+      output = "DP-3";
+    }
+    {
+      workspace = "9";
+      output = "DP-3";
+    }
+    {
+      workspace = "10";
+      output = "DP-3";
+    }
+  ];
+  window.commands = [
+    {
+      command = "floating enable";
+      criteria = {
+        window_role = "dialog";
+      };
+    }
     {
       command = "floating enable";
       criteria = {
         app_id = "org.gnome.clocks";
       };
     }
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      app_id = "mpv";
-	    };
-	  }
-	  {
-	    command = "inhibit_idle fullscreen";
-	    criteria = {
-	      class = ".*";
-	    };
-	  }
-	  {
-	    command = "inhibit_idle fullscreen";
-	    criteria = {
-	      app_id = ".*";
-	    };
-	  }
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      workspace = "7";
-	    };
-	  }
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      app_id = "org.wezfurlong.wezterm";
-	    };
-	  }
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      app_id = "org.kde.kalarm";
-	    };
-	  }
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      app_id = "org.kde.kronometer";
-	    };
-	  }
-	  {
-	    command = "floating enable";
-	    criteria = {
-	      app_id = "org.keepassxc.KeePassXC";
-	    };
-	  }
-	];
-	
-	keybindings = lib.mkOptionDefault {
-	  "${modifierBind}+Shift+d" = "exec ${menu1}";
-	  "${modifierBind}+Shift+b" = "exec ${BROWSER}";
-	  "${modifierBind}+Shift+m" = "exec ${musicPlayer}";
-	  "${modifierBind}+o" = "exec waybar_toggle";
+    {
+      command = "floating enable";
+      criteria = {
+        app_id = "mpv";
+      };
+    }
+    {
+      command = "inhibit_idle fullscreen";
+      criteria = {
+        class = ".*";
+      };
+    }
+    {
+      command = "inhibit_idle fullscreen";
+      criteria = {
+        app_id = ".*";
+      };
+    }
+    {
+      command = "floating enable";
+      criteria = {
+        workspace = "7";
+      };
+    }
+    {
+      command = "floating enable";
+      criteria = {
+        app_id = "org.wezfurlong.wezterm";
+      };
+    }
+    {
+      command = "floating enable";
+      criteria = {
+        app_id = "org.kde.kalarm";
+      };
+    }
+    {
+      command = "floating enable";
+      criteria = {
+        app_id = "org.kde.kronometer";
+      };
+    }
+    {
+      command = "floating enable";
+      criteria = {
+        app_id = "org.keepassxc.KeePassXC";
+      };
+    }
+  ];
+
+  keybindings = lib.mkOptionDefault {
+    "${modifierBind}+Shift+d" = "exec ${menu1}";
+    "${modifierBind}+Shift+b" = "exec ${BROWSER}";
+    "${modifierBind}+Shift+m" = "exec ${musicPlayer}";
+    "${modifierBind}+o" = "exec waybar_toggle";
+    "${modifierBind}+Ctrl+Shift+s" = "exec systemctl suspend";
 
     XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
     XF86AudioLowerVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/wobpipe";
