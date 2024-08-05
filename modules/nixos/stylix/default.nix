@@ -16,4 +16,5 @@
   };
   stylix.polarity = "dark";
   stylix.targets.grub.enable = true;
+  stylix.targets.plymouth.enable = true;
 }
