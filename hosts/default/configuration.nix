@@ -172,7 +172,6 @@
     grim
     slurp
     satty
-    nerdfonts
     xfce.thunar
     killall
   ];
