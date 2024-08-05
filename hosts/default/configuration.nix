@@ -57,6 +57,13 @@
     loader.timeout = 0;
   };
 
+  hardware.opengl = {
+   enable = true;
+   extraPackages = with pkgs; [
+     rocmPackages.clr.icd
+   ];
+  };
+
   networking.hostName = "Aurelius"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -209,6 +216,7 @@
     satty
     xfce.thunar
     killall
+    waon
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
