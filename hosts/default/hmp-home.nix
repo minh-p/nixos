@@ -9,6 +9,7 @@
     ../../modules/home-manager/editors/emacs
     ../../modules/home-manager/theming/stylix
     ../../modules/home-manager/screenrecord/obs
+    ../../modules/home-manager/audio/easyeffects
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -82,6 +83,14 @@
     jq
     audacity
     # davinci-resolve
+    pavucontrol
+    libsForQt5.kdenlive
+    gimp
+    mediainfo
+    glaxnimate
+    easyeffects
+    subtitleedit
+    pandoc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

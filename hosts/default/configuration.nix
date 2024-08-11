@@ -252,6 +252,15 @@
   programs.sway.enable = true;
   programs.sway.wrapperFeatures.gtk = true;
 
+  services.xserver.enable = true;
+  services.xserver.autorun = false;
+  services.xserver.displayManager.startx.enable = true;
+  services.xserver.windowManager.dwm.enable = true;
+  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
+    src = /home/hmp/.local/src/dwm-2;
+  };
+
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
