@@ -75,6 +75,7 @@
     variety
     pamixer
     komikku
+    hakuneko
     cliphist
     distrobox
     telegram-desktop
@@ -91,6 +92,10 @@
     easyeffects
     subtitleedit
     pandoc
+    cowsay
+    okular
+    transmission-gtk
+    zstd
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -139,6 +144,7 @@
   sway.enable = true;
   emacs.enable = true;
   stylix.enable = true;
+  easyeffects.enable = true;
   spicetify.enable = true;
   obs.enable = true;
   # Let Home Manager install and manage itself.

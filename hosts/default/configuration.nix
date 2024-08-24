@@ -88,8 +88,9 @@
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
-      fcitx5-unikey
+      libsForQt5.fcitx5-unikey
       fcitx5-configtool
+      fcitx5-unikey
     ];
   }; 
 
@@ -116,7 +117,7 @@
     openFirewall = true;
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
   virtualisation.docker.daemon.settings = {
     data-root = "/home/hmp/.local/share/docker-root";
   };
