@@ -146,6 +146,7 @@
 
   # Allow experimental nix command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.auto-optimise-store = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hmp = {
@@ -256,7 +257,7 @@
   services.xserver.enable = true;
   services.xserver.autorun = false;
   services.xserver.displayManager.startx.enable = true;
-  services.xserver.windowManager.dwm.enable = true;
+  # services.xserver.windowManager.dwm.enable = true;
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
     src = /home/hmp/.local/src/dwm-2;
   };
