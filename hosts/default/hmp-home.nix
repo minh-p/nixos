@@ -10,6 +10,7 @@
     ../../modules/home-manager/theming/stylix
     ../../modules/home-manager/screenrecord/obs
     ../../modules/home-manager/audio/easyeffects
+    ../../modules/home-manager/music/mpd.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -146,6 +147,7 @@
   stylix.enable = true;
   easyeffects.enable = true;
   spicetify.enable = true;
+  mpd.enable = true;
   obs.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
