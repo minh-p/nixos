@@ -57,7 +57,6 @@
     pstree
     vesktop
     emacsPackages.vterm
-    ncmpcpp
     ytfzf
     ispell
     sioyek
