@@ -20,13 +20,21 @@ in
       enabledExtensions = with spicePkgs.extensions; [
         fullAppDisplay
         shuffle # shuffle+ (special characters are sanitized out of ext names)
-        hidePodcasts
         adblock
         keyboardShortcut
+        beautifulLyrics
+        hidePodcasts
+        history
+        volumePercentage
       ];
 
       enabledCustomApps = with spicePkgs.apps; [
+        betterLibrary
+        historyInSidebar
+        localFiles
+        lyricsPlus
         marketplace
+        nameThatTune
       ];
     };
   };
