@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
@@ -16,6 +16,7 @@ in
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "macchiato";
       windowManagerPatch = true;
+      spicetifyPackage = pkgs-unstable.spicetify-cli;
 
       enabledExtensions = with spicePkgs.extensions; [
         fullAppDisplay
@@ -31,10 +32,7 @@ in
       enabledCustomApps = with spicePkgs.apps; [
         betterLibrary
         historyInSidebar
-        localFiles
-        lyricsPlus
         marketplace
-        nameThatTune
       ];
     };
   };
