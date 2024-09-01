@@ -96,6 +96,9 @@
     okular
     transmission-gtk
     zstd
+    pyright
+    nodePackages.typescript-language-server
+    typescript
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
