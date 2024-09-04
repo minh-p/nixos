@@ -5,20 +5,17 @@
 { config, lib, pkgs, pkgs-unstable, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      inputs.stylix.nixosModules.stylix
-      ../../modules/nixos/stylix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    inputs.stylix.nixosModules.stylix
+    ../../modules/nixos/stylix
+  ];
 
   boot = {
     plymouth.enable = true;
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
+      efi = { canTouchEfiVariables = true; };
       grub = {
         enable = true;
         useOSProber = true;
@@ -28,12 +25,12 @@
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
         device = "nodev";
         extraEntries = ''
-            menuentry "Reboot" {
-                reboot
-            }
-            menuentry "Poweroff" {
-                halt
-            }
+          menuentry "Reboot" {
+              reboot
+          }
+          menuentry "Poweroff" {
+              halt
+          }
         '';
       };
     };
@@ -58,16 +55,15 @@
   };
 
   hardware.opengl = {
-   enable = true;
-   extraPackages = with pkgs; [
-     rocmPackages.clr.icd
-   ];
+    enable = true;
+    extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
   networking.hostName = "Aurelius"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -87,12 +83,12 @@
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
+      fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
       libsForQt5.fcitx5-unikey
       fcitx5-configtool
       fcitx5-unikey
     ];
-  }; 
+  };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -107,9 +103,7 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [
-      pkgs.brlaser
-    ];
+    drivers = [ pkgs.brlaser ];
   };
   services.avahi = {
     enable = true;
@@ -141,6 +135,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
@@ -164,9 +161,7 @@
       inherit pkgs-unstable;
     };
     backupFileExtension = "hm-backup";
-    users = {
-      "hmp" = import ./hmp-home.nix;
-    };
+    users = { "hmp" = import ./hmp-home.nix; };
   };
 
   # List packages installed in system profile. To search, run:
@@ -260,11 +255,9 @@
   services.xserver.enable = true;
   services.xserver.autorun = false;
   services.xserver.displayManager.startx.enable = true;
-  # services.xserver.windowManager.dwm.enable = true;
-  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
-    src = /home/hmp/.local/src/dwm-2;
-  };
-
+  services.xserver.windowManager.dwm.enable = true;
+  services.xserver.windowManager.dwm.package =
+    pkgs.dwm.overrideAttrs { src = /home/hmp/.local/src/dwm-2; };
 
   xdg.portal = {
     enable = true;
