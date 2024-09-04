@@ -144,6 +144,7 @@
     MPD_HOST = "localhost";
     TERMINAL = "foot";
     BROWSER = "firefox";
+    BROWSER2 = "brave";
     WALLPAPERS_SRC = "${config.home.homeDirectory}/.config/variety/Favorites/.";
   };
 
