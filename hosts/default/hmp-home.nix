@@ -46,13 +46,13 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     (texlive.combine {
-      inherit (texlive) scheme-medium
-        dvisvgm dvipng # for preview and export as html
+      inherit (texlive)
+        scheme-medium dvisvgm dvipng # for preview and export as html
         wrapfig amsmath ulem hyperref capt-of;
-        #(setq org-latex-compiler "lualatex")
-        #(setq org-preview-latex-default-process 'dvisvgm)
+      #(setq org-latex-compiler "lualatex")
+      #(setq org-preview-latex-default-process 'dvisvgm)
     })
-  
+
     starship
     pstree
     vesktop
@@ -99,6 +99,10 @@
     pyright
     nodePackages.typescript-language-server
     typescript
+    dockerfile-language-server-nodejs
+    nodePackages.prettier
+    nodejs
+    brave
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -137,7 +141,7 @@
     VISUAL = "nvim";
     HISTFILE = "${config.home.homeDirectory}/.histfile";
     HISTSIZE = 1000;
-    MPD_HOST="localhost";
+    MPD_HOST = "localhost";
     TERMINAL = "foot";
     BROWSER = "firefox";
     WALLPAPERS_SRC = "${config.home.homeDirectory}/.config/variety/Favorites/.";
