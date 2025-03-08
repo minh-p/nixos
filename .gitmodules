@@ -1,0 +1,6 @@
+[submodule "src/dwm-2"]
+	path = src/dwm-2
+	url = https://github.com/minh-p/dwm-2
+[submodule "src/dwmblocks"]
+	path = src/dwmblocks
+	url = https://github.com/minh-p/dwmblocks

@@ -54,7 +54,7 @@
     loader.timeout = 0;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
@@ -81,7 +81,8 @@
   # };
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
       libsForQt5.fcitx5-unikey
@@ -186,6 +187,7 @@
     coreutils
     htop
     firefox
+    google-chrome
     ffmpeg-full
     vulkan-tools
     swaylock-effects
@@ -257,7 +259,14 @@
   services.xserver.displayManager.startx.enable = true;
   services.xserver.windowManager.dwm.enable = true;
   services.xserver.windowManager.dwm.package =
-    pkgs.dwm.overrideAttrs { src = /home/hmp/.local/src/dwm-2; };
+    pkgs.dwm.overrideAttrs { src = ./src/dwm-2; };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   xdg.portal = {
     enable = true;

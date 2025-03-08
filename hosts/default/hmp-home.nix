@@ -54,6 +54,8 @@
     })
 
     starship
+    ydotool
+    xclicker
     pstree
     vesktop
     emacsPackages.vterm
@@ -67,7 +69,7 @@
     mpc-cli
     librewolf
     fastfetch
-    gnome.gnome-clocks
+    gnome-clocks
     cava
     wl-color-picker
     swaybg
@@ -94,7 +96,7 @@
     pandoc
     cowsay
     okular
-    transmission-gtk
+    transmission_3-gtk
     zstd
     pyright
     nodePackages.typescript-language-server
@@ -103,6 +105,8 @@
     nodePackages.prettier
     nodejs
     brave
+    ani-cli
+    prismlauncher
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -152,8 +156,8 @@
   sway.enable = true;
   emacs.enable = true;
   stylix.enable = true;
-  easyeffects.enable = true;
-  spicetify.enable = true;
+  easyeffects.enable = false;
+  # spicetify.enable = true;
   mpd.enable = true;
   obs.enable = true;
   # Let Home Manager install and manage itself.

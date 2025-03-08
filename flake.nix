@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     sddm-sugar-candy-nix = {
@@ -17,12 +17,19 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # stylix = {
+    #   url = "github:danth/stylix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.home-manager.follows = "home-manager";
+    # };
+
+    # temporary stylix
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
@@ -43,9 +50,7 @@
         inputs.sddm-sugar-candy-nix.nixosModules.default
         {
           nixpkgs = {
-            overlays = [
-              inputs.sddm-sugar-candy-nix.overlays.default
-            ];
+            overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ];
           };
         }
       ];
@@ -53,9 +58,7 @@
 
     nixosConfigurations.iso-x86_64 = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/iso-x86_64/configuration.nix
-      ];
+      modules = [ ./hosts/iso-x86_64/configuration.nix ];
     };
   };
 }

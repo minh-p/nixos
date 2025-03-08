@@ -3,7 +3,7 @@
 {
   stylix.enable = true;
   stylix.autoEnable = false;
-  stylix.image = /etc/nixos/shared/Images/Gate.jpg;
+  stylix.image = ./Images/Gate.jpg;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Ice";

@@ -62,7 +62,7 @@ in {
       '';
     };
     programs.emacs.enable = true;
-    programs.emacs.package = pkgs.emacs29-pgtk;
+    programs.emacs.package = pkgs.emacs-pgtk;
     services.emacs.enable = true;
   };
 }
