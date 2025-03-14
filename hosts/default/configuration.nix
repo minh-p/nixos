@@ -113,6 +113,7 @@
   };
 
   virtualisation.docker.enable = false;
+  virtualisation.waydroid.enable = true;
   virtualisation.docker.daemon.settings = {
     data-root = "/home/hmp/.local/share/docker-root";
   };
