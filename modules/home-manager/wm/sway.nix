@@ -283,7 +283,7 @@ in {
             bg = "/etc/nixos/shared/Images/default.jpg fill";
             mode = "1920x1200@75Hz";
             position = "3440,0";
-            # transform = "90";
+            transform = "90";
           };
         };
         startup = [

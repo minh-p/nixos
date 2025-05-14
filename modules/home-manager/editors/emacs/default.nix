@@ -40,9 +40,7 @@ in {
     default = "main";
   };
   config = lib.mkIf config.emacs.enable {
-    home.packages = [
-      setup-doom-emacs
-    ];
+    home.packages = [ setup-doom-emacs ];
     systemd.user.services."setup-doom-emacs" = {
       Unit = {
         Description = "configure doom emacs";

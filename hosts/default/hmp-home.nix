@@ -57,7 +57,6 @@
     ydotool
     xclicker
     pstree
-    vesktop
     emacsPackages.vterm
     ytfzf
     ispell
@@ -107,6 +106,13 @@
     brave
     ani-cli
     prismlauncher
+    # (discord.override {
+    #   withVencord = true; # can do this here too
+    # })
+    vesktop
+    ripcord
+    aria2
+    unrar
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -157,7 +163,7 @@
   emacs.enable = true;
   stylix.enable = true;
   easyeffects.enable = false;
-  # spicetify.enable = true;
+  spicetify.enable = true;
   mpd.enable = true;
   obs.enable = true;
   # Let Home Manager install and manage itself.

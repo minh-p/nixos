@@ -16,7 +16,6 @@ in
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "macchiato";
       windowManagerPatch = true;
-      spicetifyPackage = pkgs-unstable.spicetify-cli;
 
       enabledExtensions = with spicePkgs.extensions; [
         fullAppDisplay

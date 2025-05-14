@@ -220,6 +220,7 @@
     xfce.thunar
     killall
     waon
+    libtool
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -262,12 +263,15 @@
   services.xserver.windowManager.dwm.package =
     pkgs.dwm.overrideAttrs { src = ./src/dwm-2; };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
+  # programs.steam = {
+  #   enable = true;
+  #   remotePlay.openFirewall =
+  #     true; # Open ports in the firewall for Steam Remote Play
+  #   dedicatedServer.openFirewall =
+  #     true; # Open ports in the firewall for Source Dedicated Server
+  #   localNetworkGameTransfers.openFirewall =
+  #     true; # Open ports in the firewall for Steam Local Network Game Transfers
+  # };
 
   xdg.portal = {
     enable = true;
