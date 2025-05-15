@@ -113,6 +113,8 @@
     ripcord
     aria2
     unrar
+    vscode
+    (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
