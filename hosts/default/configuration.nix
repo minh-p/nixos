@@ -174,7 +174,6 @@
     ventoy
     tmux
     pulseaudio
-    gnome.gnome-keyring
     jetbrains-mono
     dejavu_fonts
     font-awesome_5
@@ -188,7 +187,6 @@
     coreutils
     htop
     firefox
-    google-chrome
     ffmpeg-full
     vulkan-tools
     swaylock-effects

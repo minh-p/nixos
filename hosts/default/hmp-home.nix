@@ -109,7 +109,7 @@
     # (discord.override {
     #   withVencord = true; # can do this here too
     # })
-    vesktop
+    discord
     ripcord
     aria2
     unrar
@@ -166,6 +166,11 @@
   spicetify.enable = true;
   mpd.enable = true;
   obs.enable = true;
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
