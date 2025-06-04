@@ -117,7 +117,6 @@
     vscode
     (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
     (pkgs.callPackage ../../modules/home-manager/roblox/wally.nix { })
-    (pkgs.callPackage ../../modules/home-manager/game-utils/crossover.nix { })
     rojo
     gdb
     sdl3
