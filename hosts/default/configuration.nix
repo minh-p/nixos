@@ -180,6 +180,7 @@
     cmake
     gnumake
     clang
+    clang-tools
     fd
     auto-cpufreq
     wget
