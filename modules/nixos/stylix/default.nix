@@ -4,7 +4,7 @@
   stylix.enable = true;
   stylix.autoEnable = false;
   stylix.image = ./Images/Gate.jpg;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+  # stylix.base16Scheme ="${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.cursor.size = 24;

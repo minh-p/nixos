@@ -171,7 +171,6 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
-    ventoy
     tmux
     pulseaudio
     jetbrains-mono
@@ -262,15 +261,15 @@
   services.xserver.windowManager.dwm.package =
     pkgs.dwm.overrideAttrs { src = ./src/dwm-2; };
 
-  # programs.steam = {
-  #   enable = true;
-  #   remotePlay.openFirewall =
-  #     true; # Open ports in the firewall for Steam Remote Play
-  #   dedicatedServer.openFirewall =
-  #     true; # Open ports in the firewall for Source Dedicated Server
-  #   localNetworkGameTransfers.openFirewall =
-  #     true; # Open ports in the firewall for Steam Local Network Game Transfers
-  # };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall =
+      true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   xdg.portal = {
     enable = true;
@@ -312,6 +311,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
