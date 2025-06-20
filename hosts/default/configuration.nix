@@ -140,6 +140,9 @@
   # Enable flatpak
   services.flatpak.enable = true;
 
+  # Ydotool daemon
+  programs.ydotool.enable = true;
+
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
@@ -151,7 +154,7 @@
   users.users.hmp = {
     isNormalUser = true;
     home = "/home/hmp";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "ydotool" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 

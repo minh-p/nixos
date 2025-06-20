@@ -54,7 +54,6 @@
     })
 
     starship
-    ydotool
     xclicker
     pstree
     emacsPackages.vterm
