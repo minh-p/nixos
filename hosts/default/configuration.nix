@@ -59,7 +59,7 @@
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
-  networking.hostName = "Zeno"; # Define your hostname.
+  networking.hostName = "Aurelius"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
