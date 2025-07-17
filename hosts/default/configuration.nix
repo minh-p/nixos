@@ -59,7 +59,7 @@
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
-  networking.hostName = "Aurelius"; # Define your hostname.
+  networking.hostName = "Zeno"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
@@ -113,7 +113,7 @@
   };
 
   virtualisation.docker.enable = false;
-  virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.enable = false;
   virtualisation.docker.daemon.settings = {
     data-root = "/home/hmp/.local/share/docker-root";
   };
@@ -169,6 +169,16 @@
     users = { "hmp" = import ./hmp-home.nix; };
   };
 
+  fonts = {
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      dejavu_fonts
+      font-awesome_5
+    ];
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -176,9 +186,6 @@
     zsh
     tmux
     pulseaudio
-    jetbrains-mono
-    dejavu_fonts
-    font-awesome_5
     cmake
     gnumake
     clang
@@ -204,7 +211,6 @@
     mpv
     polkit
     unzip
-    virt-manager
     wl-clipboard
     git
     keepassxc
@@ -265,7 +271,7 @@
     pkgs.dwm.overrideAttrs { src = ./src/dwm-2; };
 
   programs.steam = {
-    enable = true;
+    enable = false;
     remotePlay.openFirewall =
       true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall =

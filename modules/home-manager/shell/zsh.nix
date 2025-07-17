@@ -13,10 +13,12 @@
 	  full_symbol = "🔋";
           charging_symbol = "🔌";
           discharging_symbol = "⚡";
-	  display = {
-	    threshold = 30;
-	    style = "bold red";
-	  };
+	  display = [
+        {
+	      threshold = 30;
+	      style = "bold red";
+	    }
+      ];
 	};
 	character.error_symbol = "[✖](bold red) ";
 	cmd_duration.format = " took [$duration]($style)";
