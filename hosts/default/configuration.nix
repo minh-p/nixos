@@ -145,6 +145,9 @@
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-1.1.05"
+  ];
 
   # Allow experimental nix command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -184,6 +187,7 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
+    ventoy
     tmux
     pulseaudio
     cmake
