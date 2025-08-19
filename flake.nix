@@ -66,7 +66,7 @@
         };
       };
       modules = [
-        ./hosts/default/configuration.nix
+        ./hosts/Zeno/configuration.nix
         inputs.sddm-sugar-candy-nix.nixosModules.default
         {
           nixpkgs = {
