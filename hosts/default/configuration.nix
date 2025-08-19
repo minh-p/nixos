@@ -147,6 +147,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.05"
+    "etcher"
   ];
 
   # Allow experimental nix command
