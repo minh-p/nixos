@@ -258,7 +258,7 @@ in {
           "${modifierBind}+q" = "kill";
           "${modifierBind}+Shift+e" = "exec ${editor}";
           "${modifierBind}+Shift+z" =
-            "exec notify-send 'Starting Replay' && exec gpu-screen-recorder -w DP-3 -f 60 -r 30 -c mp4 -o ~/Videos/Replays";
+            "exec notify-send 'Starting Replay' && exec gpu-screen-recorder -w DP-3 -f 60 -a default_output -r 30 -c mp4 -o ~/Videos/Replays";
           "${modifierBind}+z" =
             "exec notify-send 'Replay Captured' && exec killall -SIGUSR1 gpu-screen-recorder";
           "${modifierBind}+Mod1+Return" =
