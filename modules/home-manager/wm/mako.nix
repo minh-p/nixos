@@ -9,18 +9,18 @@
       settings = {
         sort = "-time";
         layer = "overlay";
-        backgroundColor = "#1a1b26";
+        background-color = "#1a1b26";
         width = 300;
         height = 110;
-        borderSize = 2;
-        borderColor = "#c0caf5";
-        progressColor = "over #302D41";
-        textColor = "#c0caf5";
-        borderRadius = 15;
+        border-size = 2;
+        border-color = "#c0caf5";
+        progress-color = "over #302D41";
+        text-color = "#c0caf5";
+        border-radius = 15;
         icons = true;
-        maxIconSize = 64;
-        defaultTimeout = 5000;
-        ignoreTimeout = true;
+        max-icon-size = 64;
+        default-timeout = 5000;
+        ignore-timeout = true;
         font = "DejaVu Sans Mono 14";
       };
     };
