@@ -76,6 +76,26 @@
       ];
     };
 
+    nixosConfigurations.Noah = nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+      modules = [
+        ./hosts/Noah/configuration.nix
+        inputs.sddm-sugar-candy-nix.nixosModules.default
+        {
+          nixpkgs = {
+            overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ];
+          };
+        }
+      ];
+    };
+
     nixosConfigurations.iso-x86_64 = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [ ./hosts/iso-x86_64/configuration.nix ];

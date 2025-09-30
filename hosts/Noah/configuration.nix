@@ -59,7 +59,7 @@
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
-  networking.hostName = "Aurelius"; # Define your hostname.
+  networking.hostName = "Zeno"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
@@ -143,11 +143,11 @@
   # Ydotool daemon
   programs.ydotool.enable = true;
 
-  programs.gpu-screen-recorder.enable = true;
-
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.05" "etcher" ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-1.1.05"
+  ];
 
   # Allow experimental nix command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -232,9 +232,6 @@
     killall
     waon
     libtool
-    gpu-screen-recorder
-    gpu-screen-recorder-gtk
-    protontricks
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -278,7 +275,7 @@
     pkgs.dwm.overrideAttrs { src = ./src/dwm-2; };
 
   programs.steam = {
-    enable = true;
+    enable = false;
     remotePlay.openFirewall =
       true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall =
