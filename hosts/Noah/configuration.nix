@@ -59,6 +59,14 @@
   };
 
   hardware.enableAllFirmware = true;
+  hardware.trackpoint = {
+    enable = true;
+
+    # sensible defaults many ThinkPad users like
+    sensitivity = 120; # range: 0–255 (higher = more responsive)
+    speed = 90; # range: 0–255 (higher = faster cursor)
+    emulateWheel = true; # middle button scrolling
+  };
 
   hardware.graphics = {
     enable = true;

@@ -3,7 +3,7 @@
 {
   imports = [
     ../../modules/home-manager/shell/zsh.nix
-    ../../modules/home-manager/wm/sway.nix
+    ../../modules/home-manager/wm/sway-noah.nix
     ../../modules/home-manager/music/spicetify.nix
     ../../modules/home-manager/scripts
     ../../modules/home-manager/editors/emacs
