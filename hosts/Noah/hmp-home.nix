@@ -54,10 +54,8 @@
     })
 
     starship
-    xclicker
     pstree
     emacsPackages.vterm
-    ytfzf
     ispell
     sioyek
     calibre
@@ -65,19 +63,14 @@
     playerctl
     mpd
     mpc-cli
-    librewolf
     fastfetch
     gnome-clocks
-    cava
     wl-color-picker
     swaybg
     ripgrep
     variety
     pamixer
-    komikku
-    hakuneko
     cliphist
-    distrobox
     telegram-desktop
     signal-desktop
     drm_info
@@ -85,17 +78,11 @@
     audacity
     # davinci-resolve
     pavucontrol
-    libsForQt5.kdenlive
-    frei0r
     gimp
     mediainfo
-    glaxnimate
-    easyeffects
-    subtitleedit
     pandoc
     cowsay
     libsForQt5.okular
-    transmission_3-gtk
     zstd
     pyright
     nodePackages.typescript-language-server
@@ -104,25 +91,21 @@
     nodePackages.prettier
     nodejs
     brave
-    ani-cli
-    prismlauncher
     # (discord.override {
     #   withVencord = true; # can do this here too
     # })
     discord
-    ripcord
     aria2
     unrar
     vscode
-    (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
-    (pkgs.callPackage ../../modules/home-manager/roblox/wally.nix { })
-    rojo
+    #     (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
+    #     (pkgs.callPackage ../../modules/home-manager/roblox/wally.nix { })
+    #     rojo
     gdb
     sdl3
     pkg-config
     cmake-language-server
     glsl_analyzer
-    unityhub
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
