@@ -311,7 +311,8 @@ in {
               	      timeout 1805 'swaymsg "output * power off"' \
               	      resume 'swaymsg "output * power on"' \
                             before-sleep 'playerctl pause' \
-                            before-sleep 'swaylock'
+                            before-sleep 'swaylock' \
+                            timeout 1810 'systemctl suspend'
               	  '';
           }
           { command = "wallpaper_random"; }
