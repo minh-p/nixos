@@ -18,6 +18,7 @@ in {
     ../polkit/polkit-kde-authentication-agent.nix
     ./sway-waybar.nix
     ./clipboard.nix
+    ./swaylock.nix
   ];
 
   options = { sway.enable = lib.mkEnableOption "enable sway module"; };
@@ -30,6 +31,8 @@ in {
       _JAVA_AWT_WM_NONREPARENTING = 1;
       NIXOS_OZONE_WL = "1";
     };
+
+    swaylock.enable = true;
     mako.enable = true;
     polkit-kde-authentication-agent.enable = true;
     waybar.enable = true;
