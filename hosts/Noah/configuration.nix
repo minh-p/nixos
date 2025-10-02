@@ -14,8 +14,12 @@
 
   boot = {
     plymouth.enable = true;
+    kernelModules = [ "thinkpad_acpi" "i2c_hid" "mt7921e" ];
     loader = {
-      efi = { canTouchEfiVariables = true; };
+      efi = {
+        canTouchEfiVariables = true;
+	efiSysMountPoint = "/boot/EFI";
+      };
       grub = {
         enable = true;
         useOSProber = true;
@@ -53,6 +57,9 @@
     # It will just not appear on screen unless a key is pressed
     loader.timeout = 5;
   };
+
+
+  hardware.enableAllFirmware = true;
 
   hardware.graphics = {
     enable = true;
