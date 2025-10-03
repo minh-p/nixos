@@ -178,8 +178,6 @@
   #   libfprint = pkgs.libfprint-focaltech-2808-a658;
   # };
 
-  security.pam.services.login.fprintAuth = false;
-
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.blueman.enable = true;
