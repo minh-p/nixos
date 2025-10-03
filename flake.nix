@@ -36,7 +36,7 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.Aurelius = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
@@ -46,7 +46,7 @@
         };
       };
       modules = [
-        ./hosts/default/configuration.nix
+        ./hosts/Aurelius/configuration.nix
         inputs.sddm-sugar-candy-nix.nixosModules.default
         {
           nixpkgs = {
