@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home-manager/shell/zsh.nix
+    ../../modules/home-manager/shell/direnv.nix
     ../../modules/home-manager/wm/sway-noah.nix
     ../../modules/home-manager/music/spicetify.nix
     ../../modules/home-manager/scripts
@@ -159,6 +160,7 @@
   spicetify.enable = true;
   mpd.enable = true;
   obs.enable = true;
+  direnv.enable = true;
 
   dconf.settings = {
     "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
