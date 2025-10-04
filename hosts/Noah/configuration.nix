@@ -311,7 +311,6 @@
     xfce.thunar
     killall
     waon
-    thunderbird
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
