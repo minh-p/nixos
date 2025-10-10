@@ -193,6 +193,11 @@
     openFirewall = true;
   };
 
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   virtualisation.docker.enable = false;
   virtualisation.waydroid.enable = false;
   virtualisation.docker.daemon.settings = {
@@ -311,6 +316,8 @@
     xfce.thunar
     killall
     waon
+    steam-run
+    distrobox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
