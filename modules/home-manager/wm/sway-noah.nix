@@ -309,13 +309,12 @@ in {
           { command = "fcitx5"; }
           {
             command = ''
-              	    exec swayidle -w \
-              	      timeout 1800 'swaylock -f' \
-              	      timeout 1805 'swaymsg "output * power off"' \
-              	      resume 'swaymsg "output * power on"' \
-                            before-sleep 'playerctl pause' \
-                            before-sleep 'swaylock' \
-              	  '';
+              swayidle -w \
+                  timeout 1800 'swaylock -f' \
+                  timeout 1805 'swaymsg "output * power off"' \
+                  resume 'swaymsg "output * power on"' \
+                  before-sleep 'playerctl pause; swaylock -f'
+                                          	  '';
           }
           { command = "wallpaper_random"; }
           { command = "start-cliphist"; }
