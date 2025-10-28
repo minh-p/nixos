@@ -49,7 +49,8 @@
     (texlive.combine {
       inherit (texlive)
         scheme-medium dvisvgm dvipng # for preview and export as html
-        wrapfig amsmath ulem hyperref capt-of;
+        wrapfig amsmath ulem hyperref capt-of biber biblatex biblatex-mla
+        sectsty;
       #(setq org-latex-compiler "lualatex")
       #(setq org-preview-latex-default-process 'dvisvgm)
     })
@@ -110,6 +111,8 @@
     libreoffice-qt
     telegram-desktop
     thunderbird
+    steam-run
+    sioyek
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

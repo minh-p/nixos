@@ -112,6 +112,11 @@
     openFirewall = true;
   };
 
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   virtualisation.docker.enable = false;
   virtualisation.waydroid.enable = false;
   virtualisation.docker.daemon.settings = {
@@ -235,6 +240,7 @@
     gpu-screen-recorder
     gpu-screen-recorder-gtk
     protontricks
+    distrobox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
