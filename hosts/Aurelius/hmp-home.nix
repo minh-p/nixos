@@ -109,10 +109,11 @@
     glsl_analyzer
     libnotify
     libreoffice-qt
-    telegram-desktop
+    kotatogram-desktop
     thunderbird
     steam-run
     sioyek
+    tokei
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
