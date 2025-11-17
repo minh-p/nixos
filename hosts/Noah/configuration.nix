@@ -101,6 +101,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.plugins = [ pkgs.networkmanager-openconnect ];
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -241,7 +242,8 @@
   users.users.hmp = {
     isNormalUser = true;
     home = "/home/hmp";
-    extraGroups = [ "wheel" "ydotool" ]; # Enable ‘sudo’ for the user.
+    extraGroups =
+      [ "wheel" "ydotool" "networkmanager" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
@@ -318,6 +320,8 @@
     waon
     steam-run
     distrobox
+    networkmanagerapplet
+    (pkgs.perl.withPackages (p: with p; [ ArchiveZip ]))
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

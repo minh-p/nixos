@@ -114,6 +114,7 @@
     steam-run
     sioyek
     tokei
+    gnuplot
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -110,6 +110,9 @@
     glsl_analyzer
     thunderbird
     tokei
+    gnuplot
+    openconnect
+    xmlstarlet
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
