@@ -15,7 +15,7 @@
   boot = {
     plymouth.enable = true;
     kernelModules = [ "thinkpad_acpi" "i2c_hid" "mt7921e" ];
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -96,7 +96,7 @@
     };
   };
 
-  networking.hostName = "Zeno"; # Define your hostname.
+  networking.hostName = "Noah"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
