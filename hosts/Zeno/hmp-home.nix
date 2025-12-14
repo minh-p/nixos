@@ -25,7 +25,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -55,76 +55,41 @@
     })
 
     starship
-    xclicker
-    pstree
     emacsPackages.vterm
     ytfzf
     ispell
     sioyek
-    calibre
     nixfmt-classic
     playerctl
     mpd
-    mpc-cli
-    librewolf
+    mpc
     fastfetch
     gnome-clocks
-    cava
     wl-color-picker
     swaybg
     ripgrep
     variety
-    pamixer
-    komikku
-    hakuneko
     cliphist
-    distrobox
-    telegram-desktop
-    signal-desktop
     drm_info
     jq
     audacity
-    # davinci-resolve
     pavucontrol
-    libsForQt5.kdenlive
     frei0r
     gimp
     mediainfo
     glaxnimate
-    easyeffects
-    subtitleedit
     pandoc
-    cowsay
-    libsForQt5.okular
     libreoffice
     zstd
     pyright
-    nodePackages.typescript-language-server
-    typescript
-    dockerfile-language-server-nodejs
-    nodePackages.prettier
     nodejs
-    brave
-    ani-cli
     mermaid-cli
-    prismlauncher
-    # (discord.override {
-    #   withVencord = true; # can do this here too
-    # })
-    discord
-    ripcord
     aria2
     unrar
-    vscode
-    (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
-    (pkgs.callPackage ../../modules/home-manager/roblox/wally.nix { })
-    rojo
     gdb
     sdl3
     pkg-config
     cmake-language-server
-    glsl_analyzer
-    unityhub
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
