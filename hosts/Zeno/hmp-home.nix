@@ -96,7 +96,7 @@
     pandoc
     cowsay
     libsForQt5.okular
-    transmission_3-gtk
+    libreoffice
     zstd
     pyright
     nodePackages.typescript-language-server
@@ -106,6 +106,7 @@
     nodejs
     brave
     ani-cli
+    mermaid-cli
     prismlauncher
     # (discord.override {
     #   withVencord = true; # can do this here too

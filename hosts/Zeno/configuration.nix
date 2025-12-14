@@ -66,7 +66,7 @@
     true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Asia/Ho_Chi_Minh";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -145,9 +145,7 @@
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.05"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.05" ];
 
   # Allow experimental nix command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -292,6 +290,11 @@
   security.polkit.enable = true;
 
   # List services that you want to enable:
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
