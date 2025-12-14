@@ -1,14 +1,12 @@
 { config, pkgs, pkgs-unstable, lib, inputs, ... }:
 let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-in
-{
+  spicePkgs =
+    inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   # import the flake's module for your system
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
-  options = {
-    spicetify.enable = lib.mkEnableOption "enable spicetify flake";
-  };
+  options = { spicetify.enable = lib.mkEnableOption "enable spicetify flake"; };
 
   config = lib.mkIf config.spicetify.enable {
     programs.spicetify = {

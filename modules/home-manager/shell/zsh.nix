@@ -107,7 +107,7 @@
         ls = "ls --color=auto";
         tmux = "tmux -u";
       };
-      initExtra = lib.mkMerge [
+      initContent = lib.mkMerge [
         ''
           if [[ $TERM != "dumb" ]]; then
             eval "$(${config.home.profileDirectory}/bin/starship init zsh)"

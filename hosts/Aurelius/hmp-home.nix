@@ -12,6 +12,7 @@
     ../../modules/home-manager/screenrecord/obs
     ../../modules/home-manager/audio/easyeffects
     ../../modules/home-manager/music/mpd.nix
+    ../../modules/home-manager/terminal/foot.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -25,7 +26,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -56,7 +57,6 @@
     })
 
     starship
-    pstree
     emacsPackages.vterm
     ytfzf
     ispell
@@ -64,7 +64,7 @@
     nixfmt-classic
     playerctl
     mpd
-    mpc-cli
+    mpc
     fastfetch
     cava
     wl-color-picker
@@ -78,17 +78,17 @@
     audacity
     # davinci-resolve
     pavucontrol
-    libsForQt5.kdenlive
+    kdePackages.kdenlive
     frei0r
     gimp
     mediainfo
     pandoc
-    libsForQt5.okular
+    kdePackages.okular
     zstd
     pyright
     nodePackages.typescript-language-server
     typescript
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     nodePackages.prettier
     nodejs
     brave
@@ -161,6 +161,7 @@
   };
 
   zsh.enable = true;
+  foot.enable = true;
   sway.enable = true;
   emacs.enable = true;
   stylix.enable = true;
