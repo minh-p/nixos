@@ -122,10 +122,9 @@
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
-      libsForQt5.fcitx5-unikey
-      fcitx5-configtool
-      fcitx5-unikey
+      kdePackages.fcitx5-qt # alternatively, kdePackages.fcitx5-qt
+      kdePackages.fcitx5-configtool
+      kdePackages.fcitx5-unikey
     ];
   };
 
@@ -275,7 +274,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
     tree
-    ventoy
     tmux
     pulseaudio
     cmake
@@ -337,19 +335,19 @@
 
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.sugarCandyNix = {
-    enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
-    settings = {
-      # Set your configuration options here.
-      # Here is a simple example:
-      Background = lib.cleanSource ../../shared/Images/Gate.jpg;
-      ScreenWidth = 1920;
-      ScreenHeight = 1080;
-      FormPosition = "left";
-      HaveFormBackground = true;
-      PartialBlur = true;
-    };
-  };
+  # services.displayManager.sddm.sugarCandyNix = {
+  #   enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
+  #   settings = {
+  #     # Set your configuration options here.
+  #     # Here is a simple example:
+  #     Background = lib.cleanSource ../../shared/Images/Gate.jpg;
+  #     ScreenWidth = 1920;
+  #     ScreenHeight = 1080;
+  #     FormPosition = "left";
+  #     HaveFormBackground = true;
+  #     PartialBlur = true;
+  #   };
+  # };
 
   programs.zsh.enable = true;
   programs.sway.enable = true;
@@ -412,6 +410,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
