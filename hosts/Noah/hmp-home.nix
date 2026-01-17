@@ -114,6 +114,9 @@
     openconnect
     xmlstarlet
     zoom-us
+    mermaid-cli
+    jetbrains.pycharm-professional
+    (pkgs.callPackage ../../modules/home-manager/languages/goboscript.nix { })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
