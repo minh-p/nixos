@@ -15,7 +15,7 @@
   boot = {
     plymouth.enable = true;
     kernelModules = [ "thinkpad_acpi" "i2c_hid" "mt7921e" ];
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
     loader = {
       efi = {
         canTouchEfiVariables = true;
