@@ -268,6 +268,15 @@
   services.xserver.windowManager.dwm.package =
     pkgs.dwm.overrideAttrs { src = ./src/dwm-2; };
 
+  programs.nix-ld.enable = true;
+
+  # Start small; add more libs only if it complains later.
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc # provides glibc runtime bits + libstdc++
+    zlib
+    openssl
+  ];
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall =
