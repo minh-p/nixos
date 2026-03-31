@@ -174,6 +174,7 @@
     };
     backupFileExtension = "hm-backup";
     users = { "hmp" = import ./hmp-home.nix; };
+    sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
   };
 
   fonts = {
@@ -239,6 +240,8 @@
     gpu-screen-recorder-gtk
     protontricks
     distrobox
+    age
+    gnupg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -293,7 +296,6 @@
   };
 
   security.polkit.enable = true;
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
