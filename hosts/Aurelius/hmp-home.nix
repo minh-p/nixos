@@ -181,27 +181,32 @@
 
   sops.age.keyFile = "/home/hmp/.config/sops/age/keys.txt";
 
-  sops.secrets.spotify-password.sopsFile = ../../secrets/spotify.yaml;
-  sops.secrets.spotify-username.sopsFile = ../../secrets/spotify.yaml;
+  # sops.secrets.spotify-password.sopsFile = ../../secrets/spotify.yaml;
+  # sops.secrets.spotify-username.sopsFile = ../../secrets/spotify.yaml;
 
-  sops.templates."spotifyd.conf" = {
-    content = ''
-      [global]
-      username = "${config.sops.placeholder.spotify-username}"
-      password = "${config.sops.placeholder.spotify-password}"
-    '';
-  };
+  # sops.templates."spotifyd.conf" = {
+  #   content = ''
+  #     [global]
+  #     username = "${config.sops.placeholder.spotify-username}"
+  #     password = "${config.sops.placeholder.spotify-password}"
+  #     device_name = "Aurelius"
+  #     backend = "pulseaudio"
+  #     volume_controller = "softvol"
+  #   '';
+  # };
 
-  systemd.user.services.spotifyd = {
-    Unit = { After = [ "sops-nix.service" ]; };
-    Service = {
-      ExecStart = lib.mkForce
-        "${pkgs.spotifyd}/bin/spotifyd --no-daemon --config-path ${
-          config.sops.templates."spotifyd.conf".path
-        }";
-    };
-    Install.WantedBy = [ "default.target" ];
-  };
+  #   systemd.user.services.spotifyd = {
+  #     Unit = { After = [ "sops-nix.service" ]; };
+  #     Service = {
+  #       ExecStart = lib.mkForce
+  #         "${pkgs.spotifyd}/bin/spotifyd --no-daemon --config-path ${
+  #           config.sops.templates."spotifyd.conf".path
+  #         }";
+  #     };
+  #     Install.WantedBy = [ "default.target" ];
+  #   };
+
+  programs.spotify-player.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
