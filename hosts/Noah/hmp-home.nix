@@ -29,7 +29,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -108,17 +108,15 @@
     pkg-config
     cmake-language-server
     glsl_analyzer
-    thunderbird
     tokei
     gnuplot
     openconnect
     xmlstarlet
-    zoom-us
     mermaid-cli
-    jetbrains.pycharm-professional
     (pkgs.callPackage ../../modules/home-manager/languages/goboscript.nix { })
     plantuml
-  ];
+    gcr
+  ]) ++ (with pkgs-unstable; [ zoom-us ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -179,4 +177,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  services.gnome-keyring.enable = true;
 }

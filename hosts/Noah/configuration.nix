@@ -102,6 +102,13 @@
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
   networking.networkmanager.plugins = [ pkgs.networkmanager-openconnect ];
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+
+  networking.wireless.iwd.settings = {
+    IPv6 = { Enabled = true; };
+    Settings = { AutoConnect = true; };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -330,11 +337,11 @@
   #   enableSSHSupport = true;
   # };
 
-  services.gnome.gnome-keyring.enable = true;
   services.displayManager.sessionPackages = [ pkgs.sway ];
 
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
+
   # services.displayManager.sddm.sugarCandyNix = {
   #   enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
   #   settings = {
