@@ -116,7 +116,7 @@
   };
 
   virtualisation.podman = {
-    enable = true;
+    enable = false;
     dockerCompat = true;
   };
 
@@ -126,7 +126,7 @@
     data-root = "/home/hmp/.local/share/docker-root";
   };
   virtualisation.docker.rootless = {
-    enable = true;
+    enable = false;
     setSocketVariable = true;
   };
 
@@ -197,7 +197,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zsh
     tmux
-    pulseaudio
     cmake
     gnumake
     clang
@@ -205,8 +204,6 @@
     fd
     auto-cpufreq
     wget
-    libgcc
-    coreutils
     htop
     firefox
     ffmpeg-full
@@ -221,7 +218,6 @@
     wob
     sov
     mpv
-    polkit
     unzip
     wl-clipboard
     git
@@ -232,14 +228,11 @@
     libvterm
     i3status
     wlr-randr
-    xorg.xeyes
     grim
     slurp
     satty
     xfce.thunar
     killall
-    waon
-    libtool
     gpu-screen-recorder
     gpu-screen-recorder-gtk
     protontricks

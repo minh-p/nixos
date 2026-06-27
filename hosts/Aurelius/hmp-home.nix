@@ -30,96 +30,96 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs;
+    ([
+      # # Adds the 'hello' command to your environment. It prints a friendly
+      # # "Hello, world!" when run.
+      # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+      # # It is sometimes useful to fine-tune packages, for example, by applying
+      # # overrides. You can do that directly here, just don't forget the
+      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+      # # fonts?
+      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-    (texlive.combine {
-      inherit (texlive)
-        scheme-medium dvisvgm dvipng # for preview and export as html
-        wrapfig amsmath ulem hyperref capt-of biber biblatex biblatex-mla
-        sectsty;
-      #(setq org-latex-compiler "lualatex")
-      #(setq org-preview-latex-default-process 'dvisvgm)
-    })
+      # # You can also create simple shell scripts directly inside your
+      # # configuration. For example, this adds a command 'my-hello' to your
+      # # environment:
+      # (pkgs.writeShellScriptBin "my-hello" ''
+      #   echo "Hello, ${config.home.username}!"
+      # '')
+      (texlive.combine {
+        inherit (texlive)
+          scheme-medium dvisvgm dvipng # for preview and export as html
+          wrapfig amsmath ulem hyperref capt-of biber biblatex biblatex-mla
+          sectsty;
+        #(setq org-latex-compiler "lualatex")
+        #(setq org-preview-latex-default-process 'dvisvgm)
+      })
 
-    starship
-    emacsPackages.vterm
-    ytfzf
-    ispell
-    calibre
-    nixfmt-classic
-    playerctl
-    mpd
-    mpc
-    fastfetch
-    cava
-    wl-color-picker
-    swaybg
-    ripgrep
-    variety
-    pamixer
-    cliphist
-    drm_info
-    jq
-    audacity
-    # davinci-resolve
-    pavucontrol
-    kdePackages.kdenlive
-    frei0r
-    gimp
-    mediainfo
-    pandoc
-    kdePackages.okular
-    zstd
-    pyright
-    nodePackages.typescript-language-server
-    typescript
-    dockerfile-language-server
-    nodePackages.prettier
-    nodejs
-    brave
-    ani-cli
-    prismlauncher
-    # (discord.override {
-    #   withVencord = true; # can do this here too
-    # })
-    discord
-    aria2
-    unrar
-    # (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
-    # (pkgs.callPackage ../../modules/home-manager/roblox/wally.nix { })
-    gdb
-    sdl3
-    pkg-config
-    cmake-language-server
-    glsl_analyzer
-    libnotify
-    libreoffice-qt
-    kotatogram-desktop
-    thunderbird
-    steam-run
-    sioyek
-    tokei
-    gnuplot
-    mermaid-cli
-    blender
-    plantuml
-    tree
-  ];
+      starship
+      emacsPackages.vterm
+      ispell
+      calibre
+      nixfmt-classic
+      playerctl
+      mpd
+      mpc
+      fastfetch
+      cava
+      wl-color-picker
+      swaybg
+      ripgrep
+      variety
+      pamixer
+      cliphist
+      drm_info
+      jq
+      audacity
+      # davinci-resolve
+      pavucontrol
+      kdePackages.kdenlive
+      frei0r
+      gimp
+      mediainfo
+      pandoc
+      kdePackages.okular
+      zstd
+      pyright
+      nodePackages.typescript-language-server
+      typescript
+      dockerfile-language-server
+      nodePackages.prettier
+      nodejs
+      brave
+      ani-cli
+      prismlauncher
+      # (discord.override {
+      #   withVencord = true; # can do this here too
+      # })
+      discord
+      aria2
+      unrar
+      # (pkgs.callPackage ../../modules/home-manager/lsp/luau-lsp.nix { })
+      # (pkgs.callPackage ../../modules/home-manager/roblox/wally.nix { })
+      gdb
+      sdl3
+      pkg-config
+      cmake-language-server
+      glsl_analyzer
+      libnotify
+      libreoffice-qt
+      kotatogram-desktop
+      thunderbird
+      steam-run
+      sioyek
+      tokei
+      gnuplot
+      mermaid-cli
+      blender
+      plantuml
+      tree
+    ]) ++ (with pkgs-unstable; [ code-cursor ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
