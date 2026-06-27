@@ -34,6 +34,7 @@
         '';
       };
     };
+    kernelModules = [ "uinput" ];
 
     # Enable "Silent Boot"
     consoleLogLevel = 0;
@@ -58,6 +59,9 @@
     enable = true;
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
+
+  hardware.opentabletdriver.enable = true;
+  hardware.uinput.enable = true;
 
   networking.hostName = "Aurelius"; # Define your hostname.
   # Pick only one of the below networking options.
