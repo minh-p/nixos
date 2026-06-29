@@ -116,7 +116,7 @@
     (pkgs.callPackage ../../modules/home-manager/languages/goboscript.nix { })
     plantuml
     gcr
-  ]) ++ (with pkgs-unstable; [ zoom-us code-cursor ]);
+  ]) ++ (with pkgs-unstable; [ zoom-us code-cursor drawy ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

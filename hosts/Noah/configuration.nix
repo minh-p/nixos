@@ -14,7 +14,7 @@
 
   boot = {
     plymouth.enable = true;
-    kernelModules = [ "thinkpad_acpi" "i2c_hid" "mt7921e" ];
+    kernelModules = [ "thinkpad_acpi" "i2c_hid" "mt7921e" "uinput" ];
     kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
     loader = {
       efi = {
@@ -73,6 +73,8 @@
     enable = true;
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
+  hardware.opentabletdriver.enable = true;
+  hardware.uinput.enable = true;
 
   hardware.bluetooth = {
     enable = true;
